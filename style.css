@@ -56,7 +56,10 @@ section {
 }
 
 .bold-text {
-  font-weight: bold;  /* slightly bold; 700 is fully bold */
+    text-decoration: none;        /* remove default underline */
+  color: #335949;               /* main palette color */
+  transition: color 0.3s, transform 0.3s, text-decoration 0.3s;
+  font-weight: 500;   /* slightly bold; 700 is fully bold */
 }
 
 #typed {
