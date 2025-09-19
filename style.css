@@ -32,21 +32,25 @@ section {
   flex-wrap: wrap;               /* wrap on small screens */
 }
 
-.hero-info p, .hero-info a, .hero-info span {
-  margin: 0;                     /* remove default spacing */
+.hero-info p,
+.hero-info span {
+  margin: 0; 
+  display: inline;              /* keep inline */
 }
 
 .hero-info a {
-  text-decoration: none;
-  color: #335949;                /* main palette color */
-  transition: color 0.3s, transform 0.3s;
+  text-decoration: none;        /* remove default underline */
+  color: #335949;               /* main palette color */
+  transition: color 0.3s, transform 0.3s, text-decoration 0.3s;
+  font-weight: 500;             /* slightly bolder */
 }
 
 .hero-info a:hover {
-  color: #6aa84f;                /* hover highlight color */
-  transform: translateY(-2px);   /* subtle lift effect */
+  text-decoration: underline;   /* show underline on hover */
+  color: #6aa84f;               /* hover highlight color */
+  transform: translateY(-2px);  /* subtle lift effect */
 }
 
 .hero-info span {
-  color: #999;                   /* subtle separator color */
+  color: #999;                  /* subtle separator color */
 }
