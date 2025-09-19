@@ -56,9 +56,9 @@ section {
 }
 
 .bold-text {
-    text-decoration: none;        /* remove default underline */
+  text-decoration: none;        /* remove default underline */
   color: #335949;               /* main palette color */
-  transition: color 0.3s, transform 0.3s, text-decoration 0.3s;
+
   font-weight: 500;   /* slightly bold; 700 is fully bold */
 }
 
@@ -79,28 +79,35 @@ section {
 
 .subheading {
   font-size: 1.5rem;   /* intermediate size */
-  font-weight: 600;    /* bold */
+  font-weight: 55x0;    /* bold */
   margin-top: 0.5rem;  /* a little spacing below the title */
 }
 
 
 nav {
   display: flex;
-  justify-content: flex-end;  /* push links to the right */
+  justify-content: space-between;
   align-items: center;
-  background: #f5f2eb;        /* same as body background */
   padding: 1rem 2rem;
+  background: #f5f2eb; /* matches your background */
 }
 
-nav a {
+.nav-left a, 
+.nav-right a {
+  margin-right: 1rem;
   text-decoration: none;
-  color: #335949;             /* match main text color */
-  margin-left: 1.5rem;
-  font-weight: 500;
-  transition: text-decoration 0.3s, transform 0.3s;
+  color: #335949; /* theme green */
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.nav-left a:hover,
+.nav-right a:hover {
   transform: translateY(-2px);
+  text-decoration: underline;
 }
+
+.nav-left i {
+  font-size: 1.4rem;
+}
+
