@@ -19,4 +19,34 @@ section {
 
 .hero {
   text-align: center;
+  padding: 5rem 2rem;
+}
+
+.hero-info {
+  display: flex;
+  gap: 0.5rem;                  /* space between items */
+  justify-content: center;       /* center horizontally */
+  align-items: center;           /* align vertically */
+  margin-top: 1rem;              /* spacing below hero text */
+  font-size: 1rem;               /* slightly smaller than h1 */
+  flex-wrap: wrap;               /* wrap on small screens */
+}
+
+.hero-info p, .hero-info a, .hero-info span {
+  margin: 0;                     /* remove default spacing */
+}
+
+.hero-info a {
+  text-decoration: none;
+  color: #335949;                /* main palette color */
+  transition: color 0.3s, transform 0.3s;
+}
+
+.hero-info a:hover {
+  color: #6aa84f;                /* hover highlight color */
+  transform: translateY(-2px);   /* subtle lift effect */
+}
+
+.hero-info span {
+  color: #999;                   /* subtle separator color */
 }
