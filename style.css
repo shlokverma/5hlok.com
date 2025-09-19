@@ -1,0 +1,22 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background: #f5f2eb;
+  color: #335949;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  padding: 1rem;
+  background: #e0ddd5;
+}
+
+section {
+  padding: 5rem 2rem;
+}
+
+.hero {
+  text-align: center;
+}
