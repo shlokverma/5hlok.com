@@ -56,7 +56,7 @@ section {
 }
 
 .bold-text {
-  font-weight: 600;  /* slightly bold; 700 is fully bold */
+  font-weight: bold;  /* slightly bold; 700 is fully bold */
 }
 
 #typed {
@@ -72,4 +72,32 @@ section {
   color: #335949;
   font-family: system-ui;
   line-height: 1;
+}
+
+.subheading {
+  font-size: 1.5rem;   /* intermediate size */
+  font-weight: 600;    /* bold */
+  margin-top: 0.5rem;  /* a little spacing below the title */
+}
+
+
+nav {
+  display: flex;
+  justify-content: flex-end;  /* push links to the right */
+  align-items: center;
+  background: #f5f2eb;        /* same as body background */
+  padding: 1rem 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #335949;             /* match main text color */
+  margin-left: 1.5rem;
+  font-weight: 500;
+  transition: text-decoration 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  transform: translateY(-2px);
 }
