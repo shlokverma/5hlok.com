@@ -97,7 +97,7 @@ nav {
   margin-right: 1rem;
   text-decoration: none;
   color: #335949; /* theme green */
-  font-size: 1.2rem;
+  font-size: 1rem;
   transition: transform 0.2s ease;
 }
 
@@ -108,6 +108,6 @@ nav {
 }
 
 .nav-left i {
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
