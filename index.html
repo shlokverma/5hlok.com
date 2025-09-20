@@ -41,7 +41,7 @@
 
   <div class="nav-right">
     <a href="/about.html">About</a>
-    <a href="/projects.html">Projects</a>
+    <a href="#" id = "projects-link">Projects</a>
   </div>
 
 </nav>
@@ -74,7 +74,7 @@
       <h2>Recent explorations</h2>
     </div>
     <ul class="section-content">
-      <li>Currently building end-to-end data projects focused on analytics engineering workflows</li>
+      <li>coming soon - building end-to-end data projects focused on analytics engineering workflows</li>
     </ul>
 </section>
 
@@ -133,6 +133,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+document.getElementById('projects-link').addEventListener('click', (e) => {
+  e.preventDefault(); // Prevent default anchor jump
+
+  const section = document.querySelector('#projects');
+  const content = section.querySelector('.section-content');
+  const arrow = section.querySelector('.arrow');
+
+  // Check if the section is open
+  const isOpen = content.style.display === 'flex';
+
+  if (!isOpen) {
+    // Open the section
+    content.style.display = 'flex';
+    arrow.style.transform = 'rotate(90deg)';
+  }
+
+  // Scroll section to the center of the viewport
+  section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+
+
 });
 </script>
 
