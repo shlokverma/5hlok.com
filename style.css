@@ -37,18 +37,18 @@ nav {
   margin-right: 1rem;
 }
 
-.nav-left svg {
-  width: 25px;
-  height: 25px;
-  fill: #335949; /* theme color */
+.icon {
+  width: 30px;
+  height: 30px;
+  fill: #335949;
   transition: transform 0.2s ease, fill 0.2s ease;
 }
 
-.nav-left a:hover svg {
+.icon:hover {
   transform: translateY(-2px);
-  fill: #6aa84f; /* hover color */
-  text-decoration: none;
+  fill: #6aa84f;
 }
+
 
 /* HERO */
 .hero {
@@ -120,11 +120,13 @@ nav {
 
 #projects,
 #journey {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding-left: 0;       /* remove extra nudge */
-  padding-right: 0;
+  max-width: 700px;       /* keeps content constrained */
+  margin: 2rem auto;      /* vertical centering + horizontal auto */
+  text-align: left;       /* header left-aligned inside */
+  padding-left: 1rem;     /* slight nudge to the left */
+  padding-right: 1rem;
 }
+
 
 .section-header {
   display: flex;
@@ -136,9 +138,10 @@ nav {
 }
 
 .section-content {
-  max-width: 400px;       /* keeps list narrower */
-  margin: 0 auto;         /* center the list */
-  padding-left: 0;        /* no bullet indent, we can use custom bullets */
+  max-height: 0;          /* hide initially */
+  overflow: hidden;       /* prevent overflow */
+  transition: max-height 0.5s ease;
+  margin-left: 1.5rem;    /* optional indent */
 }
 
 
