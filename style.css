@@ -198,6 +198,7 @@ nav {
 }
 
 .role ul {
+  font-size: 0.5rem;
   list-style: none;       /* removes bullet points */
   padding: 0;             /* remove default padding */
   margin: 0;              /* remove default margin */
@@ -205,11 +206,6 @@ nav {
   max-width: 220px;       /* optional: wrap after reasonable length */
   word-wrap: break-word;  /* wrap text if too long */
 }
-
-.role ul li {
-  margin-bottom: 0.3rem;  /* spacing between items if multiple */
-}
-
 
 
 .timeline-arrow {
