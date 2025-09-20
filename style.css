@@ -39,7 +39,6 @@ nav {
 .nav-left svg {
   width: 15px;
   height: 15px;
-  object-fit: contain;
   fill: #335949; /* theme color */
   transition: transform 0.2s ease, fill 0.2s ease;
 }
@@ -114,4 +113,17 @@ nav {
   font-size: 1.5rem;   /* intermediate size */
   font-weight: 600;    /* corrected bold value */
   margin-top: 0.5rem;
+}
+
+
+
+#projects h2, #journey h2 {
+  text-align: center; /* heading centered */
+}
+
+#projects ul, #journey ul {
+  text-align: left;   /* list items left-aligned */
+  max-width: 600px;   /* optional: keep content constrained */
+  margin: 0 auto;     /* centers the block on the page */
+  padding-left: 20px; /* small padding for bullets */
 }
