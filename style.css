@@ -5,18 +5,49 @@ body {
   color: #335949;
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 1rem;
-  padding: 1rem;
-  background: #e0ddd5;
-}
-
 section {
   padding: 5rem 2rem;
 }
 
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #f5f2eb; /* matches background */
+}
+
+.nav-right a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #335949;
+  font-size: 1rem;
+  transition: transform 0.2s ease, text-decoration 0.2s ease;
+}
+
+.nav-right a:hover {
+  transform: translateY(-2px);
+  text-decoration: underline;
+}
+
+.nav-left a {
+  text-decoration: none; /* remove underline */
+}
+
+.nav-left svg {
+  width: 20px;
+  height: 20px;
+  fill: #335949; /* theme color */
+  transition: transform 0.2s ease, fill 0.2s ease;
+}
+
+.nav-left a:hover svg {
+  transform: translateY(-2px);
+  fill: #6aa84f; /* hover color */
+}
+
+/* HERO */
 .hero {
   text-align: center;
   padding: 5rem 2rem;
@@ -24,42 +55,41 @@ section {
 
 .hero-info {
   display: flex;
-  gap: 0.5rem;                  /* space between items */
-  justify-content: center;       /* center horizontally */
-  align-items: center;           /* align vertically */
-  margin-top: 1rem;              /* spacing below hero text */
-  font-size: 1rem;               /* slightly smaller than h1 */
-  flex-wrap: wrap;               /* wrap on small screens */
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  flex-wrap: wrap;
 }
 
 .hero-info p,
 .hero-info span {
-  margin: 0; 
-  display: inline;              /* keep inline */
+  margin: 0;
+  display: inline;
 }
 
 .hero-info a {
-  text-decoration: none;        /* remove default underline */
-  color: #335949;               /* main palette color */
+  text-decoration: none;
+  color: #335949;
   transition: color 0.3s, transform 0.3s, text-decoration 0.3s;
-  font-weight: 500;             /* slightly bolder */
+  font-weight: 500;
 }
 
 .hero-info a:hover {
-  text-decoration: underline;   /* show underline on hover */
-  color: #6aa84f;               /* hover highlight color */
-  transform: translateY(-2px);  /* subtle lift effect */
+  text-decoration: underline;
+  color: #6aa84f;
+  transform: translateY(-2px);
 }
 
 .hero-info .separator {
-  color: #999;   /* only the | is gray */
+  color: #999; /* only the | is gray */
 }
 
 .bold-text {
-  text-decoration: none;        /* remove default underline */
-  color: #335949;               /* main palette color */
-
-  font-weight: 500;   /* slightly bold; 700 is fully bold */
+  text-decoration: none;
+  color: #335949;
+  font-weight: 500;
 }
 
 #typed {
@@ -79,46 +109,6 @@ section {
 
 .subheading {
   font-size: 1.5rem;   /* intermediate size */
-  font-weight: 55x0;    /* bold */
-  margin-top: 0.5rem;  /* a little spacing below the title */
-}
-
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #f5f2eb; /* matches your background */
-}
-
-.nav-left a, 
-.nav-right a {
-  margin-right: 1rem;
-  text-decoration: none;
-  color: #335949; /* theme green */
-  font-size: 1rem;
-  transition: transform 0.2s ease;
-}
-
-.nav-left a:hover,
-.nav-right a:hover {
-  transform: translateY(-2px);
-  text-decoration: underline;
-}
-
-.nav-left i {
-  font-size: 1rem;
-}
-
-.icon {
-  width: 28px;
-  height: 28px;
-  fill: #335949; /* your theme green */
-  transition: transform 0.2s ease, fill 0.2s ease;
-}
-
-.icon:hover {
-  transform: translateY(-2px);
-  fill: #6aa84f; /* hover green */
+  font-weight: 600;    /* corrected bold value */
+  margin-top: 0.5rem;
 }
