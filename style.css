@@ -3,6 +3,7 @@ body {
   margin: 0;
   background: #f5f2eb;
   color: #335949;
+  padding-top: 80px;
 }
 
 section {
@@ -11,12 +12,19 @@ section {
 
 /* NAVBAR */
 nav {
+  position: fixed;      /* stick to viewport */
+  top: 0;               /* align to top */
+  left: 0;              /* align to left edge */
+  right: 0;             /* stretch full width */
+  z-index: 1000;        /* make sure it’s above other content */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #f5f2eb; /* matches background */
+  background: #f5f2eb;  /* matches background */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* optional subtle shadow */
 }
+
 
 .nav-right a {
   margin-right: 1rem;
@@ -162,4 +170,40 @@ nav {
   display: inline-block;
   transition: transform 0.3s ease; /* animate rotation */
 }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #f5f2eb; /* same as navbar */
+  border-top: 1px solid #ddd; /* subtle divider */
+  font-size: 0.9rem;
+  color: #335949;
+}
+
+.footer-left p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.footer-button {
+  background-color: #335949; /* filled like navbar icons */
+  color: #f5f2eb; /* contrast text */
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.footer-button:hover {
+  background-color: #6aa84f; /* matches hover color from navbar */
+  transform: translateY(-2px); /* lift on hover */
+}
+
+.footer-button:active {
+  transform: scale(0.95); /* subtle click animation */
+}
+
 
