@@ -126,45 +126,37 @@ nav {
 
 /*body section*/
 
-#projects,
-#journey {
-  max-width: 700px;       /* keeps content constrained */
-  margin: 1.5rem auto;      /* vertical centering + horizontal auto */
-  text-align: center;       /* header left-aligned inside */
-  padding-left: 1rem;     /* slight nudge to the left */
-  padding-right: 1rem;
+.collapsible-section {
+  text-align: center; /* center the whole section */
+  margin: 2rem auto;
 }
 
 .section-header {
-  display: flex;
+  display: inline-flex;  /* keep arrow and text inline */
   align-items: center;
-  cursor: pointer;
   gap: 0.5rem;
-  justify-content: flex-start; /* header slightly left */
-  margin-bottom: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 1rem;   /* space below header */
 }
 
-.section-container {
-  display: flex;
-  align-items: center;   /* vertical alignment of header and content */
-  gap: 2rem;             /* space between header and content items */
-}
 
+/* Horizontal layout for opened projects */
 .section-content {
-  display: flex;  
-  flex-direction: column;        /* put list items in a row */
-  gap: 0.75rem;            /* spacing between each project item */
-  margin: 0;
+  display: none;         /* hidden initially */
+  justify-content: center; /* center horizontally */
+  gap: 1.5rem;             /* space between each project */
+  margin: 1rem 0 0 0;    /* spacing below header */
   padding: 0;
   list-style: none;
 }
 
-/* Optionally center the items to the right */
 .section-content li {
-  flex: unset;                /* equal width for all items */
-  text-align: left;     /* center content in each box */
+  flex: none;           /* auto width per content */
+  text-align: center;
+  background: #f0f0f0;  /* subtle background to highlight items */
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
 }
-
 
 .arrow {
   display: inline-block;
@@ -176,46 +168,34 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #f5f2eb;
-  border-top: 1px solid #ddd;
+  background: #f5f2eb; /* matches navbar */
   font-size: 0.9rem;
   color: #335949;
-
-  opacity: 0;               /* start invisible */
-  transform: translateY(30px); /* start slightly below */
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-footer.show {
-  opacity: 1;
-  transform: translateY(0); /* slide into place */
+/* Footer left text stacked vertically */
+footer .footer-left {
+  display: flex;
+  flex-direction: column; /* stack Shlok Verma and Designed in Toronto */
+  line-height: 1.2;
 }
 
-
-.footer-left {
-  display: flex; 
-}
-
-.footer-left p {
-  margin: 0;              /* remove extra spacing */
-  font-weight: 500;
-  line-height: 1.4;       /* nice breathing space between lines */
-}
-
-
-.footer-button {
-  background-color: #335949; /* filled like navbar icons */
-  color: #f5f2eb; /* contrast text */
+/* Footer right button */
+footer .footer-right button {
+  background-color: #335949; /* filled like icons */
+  color: #f5f2eb;
+  border: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
-  text-decoration: none;
+  cursor: pointer;
   font-weight: 500;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.footer-button:hover {
-  background-color: #6aa84f; /* matches hover color from navbar */
-  transform: translateY(-2px); /* lift on hover */
+/* Floating hover effect */
+footer .footer-right button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
 .footer-button:active {
