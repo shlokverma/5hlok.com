@@ -129,7 +129,7 @@ nav {
 #projects,
 #journey {
   max-width: 700px;       /* keeps content constrained */
-  margin: 2rem auto;      /* vertical centering + horizontal auto */
+  margin: 1.5rem auto;      /* vertical centering + horizontal auto */
   text-align: center;       /* header left-aligned inside */
   padding-left: 1rem;     /* slight nudge to the left */
   padding-right: 1rem;
@@ -151,8 +151,9 @@ nav {
 }
 
 .section-content {
-  display: flex;          /* put list items in a row */
-  gap: 1.5rem;            /* spacing between each project item */
+  display: flex;  
+  flex-direction: column;        /* put list items in a row */
+  gap: 0.75rem;            /* spacing between each project item */
   margin: 0;
   padding: 0;
   list-style: none;
@@ -160,8 +161,8 @@ nav {
 
 /* Optionally center the items to the right */
 .section-content li {
-  flex: 1;                /* equal width for all items */
-  text-align: center;     /* center content in each box */
+  flex: unset;                /* equal width for all items */
+  text-align: left;     /* center content in each box */
 }
 
 
@@ -175,11 +176,21 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #f5f2eb; /* same as navbar */
-  border-top: 1px solid #ddd; /* subtle divider */
+  background: #f5f2eb;
+  border-top: 1px solid #ddd;
   font-size: 0.9rem;
   color: #335949;
+
+  opacity: 0;               /* start invisible */
+  transform: translateY(30px); /* start slightly below */
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
+footer.show {
+  opacity: 1;
+  transform: translateY(0); /* slide into place */
+}
+
 
 .footer-left {
   display: flex;

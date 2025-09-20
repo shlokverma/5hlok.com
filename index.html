@@ -102,6 +102,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Footer scroll animation
+const footer = document.querySelector('footer');
+
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY + window.innerHeight;
+  const footerPosition = footer.offsetTop;
+
+  if (scrollPosition > footerPosition - 50) { // trigger slightly before reaching footer
+    footer.classList.add('show');
+  }
+});
+
 </script>
 
 
@@ -152,6 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
     <a href="mailto:shlok.v123@gmail.com" class="footer-button">Let's Connect</a>
   </div>
 </footer>
+
+
 
 
 </body>
