@@ -27,8 +27,9 @@ nav {
 }
 
 .nav-right a:hover {
-  transform: translateY(-2px);
   text-decoration: underline;
+  color: #6aa84f;
+  transform: translateY(-2px);
 }
 
 .nav-left a {
@@ -36,8 +37,9 @@ nav {
 }
 
 .nav-left svg {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
   fill: #335949; /* theme color */
   transition: transform 0.2s ease, fill 0.2s ease;
 }
@@ -45,6 +47,7 @@ nav {
 .nav-left a:hover svg {
   transform: translateY(-2px);
   fill: #6aa84f; /* hover color */
+  text-decoration: none;
 }
 
 /* HERO */
