@@ -111,3 +111,14 @@ nav {
   font-size: 1rem;
 }
 
+.icon {
+  width: 28px;
+  height: 28px;
+  fill: #335949; /* your theme green */
+  transition: transform 0.2s ease, fill 0.2s ease;
+}
+
+.icon:hover {
+  transform: translateY(-2px);
+  fill: #6aa84f; /* hover green */
+}
