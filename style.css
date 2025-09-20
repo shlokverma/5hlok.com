@@ -163,18 +163,13 @@ nav {
 }
 
 footer {
-  position: fixed;
   display: flex;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background: #f5f2eb; /* matches navbar */
   font-size: 0.9rem;
   color: #335949;
-  z-index: 1000;
 }
 
 /* Footer left text stacked vertically */
