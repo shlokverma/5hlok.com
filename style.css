@@ -134,6 +134,7 @@ nav {
 .section-header {
   display: inline-flex;  /* keep arrow and text inline */
   align-items: center;
+  color: #335949;
   gap: 0.5rem;
   cursor: pointer;
   margin-bottom: 1rem;   /* space below header */
@@ -173,11 +174,24 @@ nav {
 .role {
   background: #f5f2eb;
   padding: 1rem 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   text-align: center;
   min-width: 200px;
 }
+
+.role h3 {
+  font-size: 1rem;    /* reduce role size slightly */
+  font-weight: normal; /* remove bold */
+  margin-bottom: 0.25rem;
+  color: #335949;     /* optional: match your theme */
+}
+
+.role p {
+  font-size: 0.9rem;   /* reduce company size slightly */
+  font-weight: normal; /* remove bold */
+  margin-bottom: 0.5rem;
+  color: #555;        /* subtle gray for contrast */
+}
+
 
 .timeline-arrow {
   font-size: 2rem;
