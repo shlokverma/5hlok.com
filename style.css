@@ -137,11 +137,24 @@ nav {
   margin-bottom: 0.5rem;
 }
 
+.section-container {
+  display: flex;
+  align-items: center;   /* vertical alignment of header and content */
+  gap: 2rem;             /* space between header and content items */
+}
+
 .section-content {
-  max-height: 0;          /* hide initially */
-  overflow: hidden;       /* prevent overflow */
-  transition: max-height 0.5s ease;
-  margin-left: 1.5rem;    /* optional indent */
+  display: flex;          /* put list items in a row */
+  gap: 1.5rem;            /* spacing between each project item */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Optionally center the items to the right */
+.section-content li {
+  flex: 1;                /* equal width for all items */
+  text-align: center;     /* center content in each box */
 }
 
 

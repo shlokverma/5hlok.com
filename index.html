@@ -77,23 +77,50 @@
     showCursor: true,
     cursorChar: '_'    // cursor style
   });
+
+// ========== COLLAPSIBLE SECTIONS ==========
+  document.querySelectorAll('.collapsible-section').forEach(section => {
+  const header = section.querySelector('.section-header');
+  const content = section.querySelector('.section-content');
+  const arrow = section.querySelector('.arrow');
+
+  // Hide content initially
+  content.style.display = 'none';
+
+  header.addEventListener('click', () => {
+    const isOpen = content.style.display === 'flex';
+
+    if (isOpen) {
+      content.style.display = 'none';
+      arrow.style.transform = 'rotate(0deg)';
+    } else {
+      content.style.display = 'flex';
+      arrow.style.transform = 'rotate(90deg)';
+    }
+  });
+});
+
 </script>
 
   <!-- Projects Section -->
   <section id="projects" class="collapsible-section">
-  <div class="section-header">
-    <span class="arrow">&#9654;</span> <!-- right-pointing triangle -->
-    <h2>Recent explorations</h2>
-  </div>
+  <div class="section-container">
+    <div class="section-header">
+      <span class="arrow">&#9654;</span>
+      <h2>Recent explorations</h2>
+    </div>
     <ul class="section-content">
       <li>Project 1</li>
       <li>Project 2</li>
+      <li>Project 3</li>
     </ul>
-  
+  </div>
 </section>
 
+
 <section id="journey"class="collapsible-section">
-  <div class="section-header">
+  <div class="section-container">
+    <div class="section-header">
     <span class="arrow">&#9654;</span>
     <h2>The journey so far</h2>
   </div>
@@ -101,6 +128,7 @@
     <li>Project 1</li>
     <li>Project 2</li>
   </ul>
+</div>
 </section>
 
 
