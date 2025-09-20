@@ -193,8 +193,7 @@ footer.show {
 
 
 .footer-left {
-  display: flex;
-  flex-direction: column; /* stack items vertically */
+  display: flex; 
 }
 
 .footer-left p {
