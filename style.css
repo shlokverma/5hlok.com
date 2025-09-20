@@ -37,8 +37,8 @@ nav {
 }
 
 .nav-left svg {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   fill: #335949; /* theme color */
   transition: transform 0.2s ease, fill 0.2s ease;
 }
@@ -115,15 +115,40 @@ nav {
   margin-top: 0.5rem;
 }
 
+/*body section*/
 
-
-#projects h2, #journey h2 {
-  text-align: center; /* heading centered */
+#projects,
+#journey {
+  max-width: 700px;       /* keeps content from stretching too wide */
+  margin: 2rem auto;      /* vertical spacing + horizontal centering */
+  text-align: left;       /* left-align text inside the section */
+  padding-left: 1rem;     /* slight nudge from center to the left */
+  padding-right: 1rem;
 }
+
 
 #projects ul, #journey ul {
   text-align: left;   /* list items left-aligned */
   max-width: 600px;   /* optional: keep content constrained */
   margin: 0 auto;     /* centers the block on the page */
   padding-left: 20px; /* small padding for bullets */
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.5rem;   /* space between arrow and heading */
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease; /* animate rotation */
+}
+
+.section-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  margin-left: 1.5rem; /* slightly indented */
 }

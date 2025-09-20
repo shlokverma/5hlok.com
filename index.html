@@ -66,45 +66,29 @@
   </div>
 </section>
 
-<!-- Typed.js -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script>
-  new Typed('#typed', {
-    strings: ["Hi, I'm Shlok"],
-    typeSpeed: 60,     // typing speed
-    backSpeed: 40,     // backspacing speed
-    backDelay: 1500,   // pause before deleting
-    loop: true,        // 🔁 keep looping
-    showCursor: true,
-    cursorChar: '_'    // cursor style
-  });
-</script>
 
   <!-- Projects Section -->
   <section id="projects">
-  <h2 class="collapsible">
-    <span class="arrow">&#9656;</span> <!-- right-pointing arrow -->
-    Recent explorations
-  </h2>
-  <div class="content">
-    <ul>
+  <div class="section-header">
+    <span class="arrow">&#9654;</span> <!-- right-pointing triangle -->
+    <h2>Recent explorations</h2>
+  </div>
+    <ul class="section-content">
       <li>Project 1</li>
       <li>Project 2</li>
     </ul>
-  </div>
+  
 </section>
 
 <section id="journey">
-  <h2 class="collapsible">
-    <span class="arrow">&#9656;</span>
-    The journey so far
-  </h2>
-  <div class="content">
-    <ul>
-      <li>Project 1</li>
-      <li>Project 2</li>
-    </ul>
+  <div class="section-header">
+    <span class="arrow">&#9654;</span>
+    <h2>The journey so far</h2>
   </div>
+  <ul class="section-content">
+    <li>Project 1</li>
+    <li>Project 2</li>
+  </ul>
 </section>
 
 
@@ -112,5 +96,7 @@
   <footer>
     <p>Contact: your.email@example.com</p>
   </footer>
+  <script src="scripts.js"></script>
+
 </body>
 </html>
