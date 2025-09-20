@@ -152,8 +152,7 @@ nav {
 
 .section-content li {
   flex: none;           /* auto width per content */
-  text-align: center;
-  background: #f0f0f0;  /* subtle background to highlight items */
+  text-align: center;  
   padding: 0.5rem 1rem;
   border-radius: 6px;
 }
@@ -164,13 +163,18 @@ nav {
 }
 
 footer {
+  position: fixed;
   display: flex;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background: #f5f2eb; /* matches navbar */
   font-size: 0.9rem;
   color: #335949;
+  z-index: 1000;
 }
 
 /* Footer left text stacked vertically */
@@ -181,11 +185,11 @@ footer .footer-left {
 }
 
 /* Footer right button */
-footer .footer-right button {
+.footer-button {
   background-color: #335949; /* filled like icons */
   color: #f5f2eb;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem; 
   border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
@@ -193,7 +197,7 @@ footer .footer-right button {
 }
 
 /* Floating hover effect */
-footer .footer-right button:hover {
+.footer-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
