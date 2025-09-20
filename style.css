@@ -130,11 +130,10 @@ nav {
 #journey {
   max-width: 700px;       /* keeps content constrained */
   margin: 2rem auto;      /* vertical centering + horizontal auto */
-  text-align: left;       /* header left-aligned inside */
+  text-align: center;       /* header left-aligned inside */
   padding-left: 1rem;     /* slight nudge to the left */
   padding-right: 1rem;
 }
-
 
 .section-header {
   display: flex;
@@ -182,10 +181,17 @@ footer {
   color: #335949;
 }
 
-.footer-left p {
-  margin: 0;
-  font-weight: 500;
+.footer-left {
+  display: flex;
+  flex-direction: column; /* stack items vertically */
 }
+
+.footer-left p {
+  margin: 0;              /* remove extra spacing */
+  font-weight: 500;
+  line-height: 1.4;       /* nice breathing space between lines */
+}
+
 
 .footer-button {
   background-color: #335949; /* filled like navbar icons */
