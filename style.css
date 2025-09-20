@@ -166,63 +166,24 @@ nav {
 .timeline {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 2rem; /* space between roles + arrows */
-  margin-top: 1.5rem;
-  flex-wrap: nowrap; /* keep everything on one line */
+  justify-content: center;
 }
 
 .role {
-  background: #f5f2eb; /* soft background, matches your theme */
+  background: #f5f2eb;
   padding: 1rem 1.5rem;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   text-align: center;
-  flex: 1; /* allow equal width distribution */
-  min-width: 200px; /* prevent shrinking too much */
-  transition: transform 0.3s ease;
+  min-width: 200px;
 }
 
-.role:hover {
-  transform: translateY(-4px); /* subtle lift effect on hover */
-}
-
-.role h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #335949; /* green theme */
-}
-
-.role p {
-  margin: 0.3rem 0 0.8rem;
-  font-weight: bold;
-  color: #555;
-}
-
-.role ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  font-size: 0.9rem;
-  color: #333;
-}
-
-.role ul li {
-  margin-bottom: 0.3rem;
-}
-
-/* ===== Timeline Arrows ===== */
 .timeline-arrow {
   font-size: 2rem;
   color: #335949;
-  flex-shrink: 0; /* keep arrows visible */
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
 }
 
-.timeline-arrow:hover {
-  opacity: 1;
-}
 
 /* ===== Section Header ===== */
 .section-header {
