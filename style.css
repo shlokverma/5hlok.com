@@ -408,3 +408,62 @@ nav {
     order: 1;
   }
 }
+
+
+/* About page layout */
+.about-main, .about-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2.5rem 0;
+}
+
+.about-main .about-text,
+.about-secondary .about-text {
+  flex: 1;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.about-main .about-photo,
+.about-secondary .about-photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* About page photo styles */
+.about-photo img {
+  width: 220px;           /* Set a fixed width */
+  height: 220px;          /* Set a fixed height */
+  object-fit: cover;      /* Crop to fill the box, keeps aspect ratio */
+  border-radius: 12px;    /* Rounded corners */
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18); /* Pop-out shadow */
+  background: #fff;       /* Optional: white background for PNGs */
+  display: block;
+  margin: 0 auto;
+}
+/* Reverse order for secondary section */
+.about-secondary {
+  flex-direction: row;
+}
+.about-secondary .about-photo {
+  order: 1;
+}
+.about-secondary .about-text {
+  order: 2;
+}
+
+/* Responsive for mobile */
+@media (max-width: 700px) {
+  .about-main, .about-secondary {
+    flex-direction: column;
+    gap: 1.2rem;
+    text-align: center;
+  }
+  .about-main .about-text,
+  .about-secondary .about-text {
+    text-align: center;
+  }
+}
