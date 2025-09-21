@@ -352,9 +352,10 @@ nav {
     justify-content: center;     /* center horizontally */
     align-items: center;
     gap: 0.3rem;
-    font-size: 0.95rem;
-    width: 100%;
-    overflow-x: auto;            /* allow horizontal scroll if needed */
+    width: 95vw;               /* Increase width */
+    max-width: 500px;          /* Optional: limit max width */
+    margin: 0 auto;            /* Center horizontally */
+    overflow-x: auto;          /* allow horizontal scroll if needed */
   }
   .collapsible-section {
     margin: 1rem 0.2rem;
@@ -366,7 +367,8 @@ nav {
 
   .section-content {
     flex-direction: column !important;
-    align-items: stretch !important;
+    align-items: center !important;
+    text-align: center;
     width: 100%;
     box-sizing: border-box;
     overflow-x: auto;
