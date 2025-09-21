@@ -195,11 +195,20 @@ nav {
   justify-content: center;
 }
 
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for 3 roles */
+  gap: 2rem;                            /* horizontal spacing */
+  justify-items: center;                 /* center each role horizontally in its column */
+  align-items: start;                    /* align tops of roles */
+  margin-top: 2rem;
+}
+
 .role {
   background: #f5f2eb;
   padding: 1rem 1.5rem;
   text-align: center;
-  min-width: 180px;       /* minimum width for small text */
+  min-width: 200px;       /* minimum width for small text */
   max-width: 220px;       /* maximum width before text wraps */
   flex: none;             /* prevent stretching in flex container */
   word-wrap: break-word;  /* wrap long text */
@@ -222,7 +231,7 @@ nav {
 }
 
 .role ul {
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   list-style: none;       /* removes bullet points */
   padding: 0;             /* remove default padding */
   margin: 0;              /* remove default margin */
@@ -232,7 +241,7 @@ nav {
 }
 
 .role li {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
 }
 
 .timeline-arrow {
