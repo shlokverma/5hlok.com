@@ -457,6 +457,11 @@ nav {
   order: 2;
 }
 
+/* Remove underline on hover for SVG icon links in nav-right ONLY on about.html */
+body.about-page .nav-right a:hover {
+  text-decoration: none;
+}
+
 /* Responsive for mobile */
 @media (max-width: 700px) {
   .about-main, .about-secondary {
