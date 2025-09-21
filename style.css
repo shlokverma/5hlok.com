@@ -188,20 +188,13 @@ nav {
 }
 
 /* ===== Timeline ===== */
-.timeline {
-  display: flex;
-  align-items: center;
-  gap: 2rem; /* space between roles + arrows */
-  justify-content: center;
-}
 
-.timeline-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns for 3 roles */
-  gap: 2rem;                            /* horizontal spacing */
-  justify-items: center;                 /* center each role horizontally in its column */
-  align-items: start;                    /* align tops of roles */
-  margin-top: 2rem;
+
+.timeline-vertical {
+  display: flex;
+  flex-direction: column; /* bottom-to-top order */
+  align-items: center;            /* center horizontally */
+  gap: 1rem;                      /* spacing between roles & arrows */
 }
 
 .role {
