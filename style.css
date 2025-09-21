@@ -415,8 +415,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  margin: 2.5rem 0;
+  gap: 1.2rem;
+  margin: 1.2rem 0;
 }
 
 .about-main .about-text,
@@ -433,6 +433,13 @@ nav {
   justify-content: center;
 }
 
+
+.about-text {
+  max-width: 420px;      /* narrower text block */
+  font-size: 1rem;       /* slightly smaller text */
+  line-height: 1.4;      /* a bit more compressed */
+  margin: 0 auto;        /* center if possible */
+}
 /* About page photo styles */
 .about-photo img {
   width: 400px;           /* Set a fixed width */
@@ -478,6 +485,28 @@ body.about-page .nav-right a:hover {
 .about-animate.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+
+.highlight {
+  display: inline-block;
+  position: relative;
+  color: #335949; /* or any accent color */
+  font-weight: 600;
+  z-index: 1;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0.08em;
+  height: 0.45em;
+  background: #e6f5e6; /* light accent, adjust as needed */
+  z-index: -1;
+  border-radius: 0.18em;
+  /* Optional: mimic a sketched/hand-drawn look */
+  box-shadow: 0 2px 8px 0 rgba(51,89,73,0.08);
+  /* Optional: add a wavy SVG background for a more "sketchy" look */
 }
 
 /* Responsive for mobile */
