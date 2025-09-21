@@ -435,8 +435,8 @@ nav {
 
 /* About page photo styles */
 .about-photo img {
-  width: 300px;           /* Set a fixed width */
-  height: 300px;          /* Set a fixed height */
+  width: 400px;           /* Set a fixed width */
+  height: 400px;          /* Set a fixed height */
   object-fit: cover;      /* Crop to fill the box, keeps aspect ratio */
   border-radius: 12px;    /* Rounded corners */
   box-shadow: 0 4px 24px rgba(0,0,0,0.18); /* Pop-out shadow */
@@ -460,6 +460,24 @@ nav {
 /* Remove underline on hover for SVG icon links in nav-right ONLY on about.html */
 body.about-page .nav-right a:hover {
   text-decoration: none;
+}
+
+.about-photo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s cubic-bezier(.4,2,.6,1);
+}
+
+/* Fade and slide-up animation for about sections */
+.about-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+}
+
+.about-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Responsive for mobile */

@@ -43,7 +43,7 @@
   </div>
   </nav>
 
-<section class="about-main">
+<section class="about-main about-animate">
   <div class="about-text">
     <p>
       Hi, I'm Shlok! I'm passionate about data, analytics engineering, and building robust solutions. I enjoy exploring new technologies and sharing what I learn.
@@ -57,7 +57,7 @@
   </div>
 </section>
 
-<section class="about-secondary">
+<section class="about-secondary about-animate">
   <div class="about-photo">
     <img src="assets/images/me_climbing.jpg" alt="Shlok Verma" />
   </div>
@@ -68,6 +68,15 @@
   </div>
 </section>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.about-animate').forEach(function(section, i) {
+    setTimeout(function() {
+      section.classList.add('visible');
+    }, 200 + i * 300); // staggered animation
+  });
+});
+</script>
 
 </body>
 </html>
