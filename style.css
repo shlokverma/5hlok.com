@@ -59,6 +59,16 @@ nav {
   fill: #6aa84f;
 }
 
+.icon-linkedin {
+  width: 32px;
+  height: 32px;
+}
+
+.icon-x {
+  width: 24px;
+  height: 24px;
+}
+
 /* NAVBAR */
 /* HERO */
 .hero {
