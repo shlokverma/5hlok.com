@@ -196,12 +196,12 @@ nav {
 }
 
 .timeline-grid {
-  display: flex; 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for 3 roles */
   gap: 2rem;                            /* horizontal spacing */
   justify-items: center;                 /* center each role horizontally in its column */
   align-items: start;                    /* align tops of roles */
   margin-top: 2rem;
-  flex-wrap: wrap;
 }
 
 .role {
@@ -247,6 +247,7 @@ nav {
 .timeline-arrow {
   font-size: 2rem;
   color: #335949;
+
 }
 /* ===== Timeline ===== */
 
