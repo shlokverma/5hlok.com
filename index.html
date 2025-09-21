@@ -81,7 +81,7 @@
 
 <section id="journey" class="collapsible-section">
   <div class="section-header">
-    <span class="toggle-arrow">&#9654;</span>
+    <span class="arrow">&#9654;</span>
     <h2>The journey so far</h2>
   </div>
 
@@ -170,6 +170,10 @@ document.addEventListener("DOMContentLoaded", () => {
       arrow.style.transform = 'rotate(90deg)';
      
     }
+
+      if (section.id === 'journey') {
+        section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
   });
 });
 
