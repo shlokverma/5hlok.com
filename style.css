@@ -46,9 +46,11 @@ nav {
 }
 
 .icon {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   fill: #335949;
+  display: inline-block;
+  vertical-align: middle;
   transition: transform 0.2s ease, fill 0.2s ease;
 }
 
@@ -275,6 +277,7 @@ footer .footer-left {
   cursor: pointer;
   font-weight: 500;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none; /* if using <a> */
 }
 
 /* Floating hover effect */
