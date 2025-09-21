@@ -91,7 +91,7 @@
       <!-- Role 1 -->
       <div class="role">
         <h3>Data Specialist</h3>
-        <p>Aspect Structural Engineers</p>
+        <p>Aspect Engineers</p>
         <ul>
         <li>Building reporting, pipelines, and analytics foundations from ground up, in a resource-tight environment.</li>
         </ul>
@@ -168,6 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       content.style.display = 'flex';
       arrow.style.transform = 'rotate(90deg)';
+       // Scroll section to the center of the viewport
+     section.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   });
 });

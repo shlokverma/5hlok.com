@@ -202,7 +202,7 @@ nav {
   padding: 1rem 1.5rem;
   text-align: center;
   min-width: 200px;       /* minimum width for small text */
-  max-width: 220px;       /* maximum width before text wraps */
+  max-width: 300px;       /* maximum width before text wraps */
   flex: none;             /* prevent stretching in flex container */
   word-wrap: break-word;  /* wrap long text */
   border-radius: 6px;     /* optional: rounded corners */
