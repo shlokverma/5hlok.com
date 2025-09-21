@@ -302,3 +302,84 @@ footer .footer-left {
 }
 
 /* ===== Footer ===== */
+
+
+/* --- Responsive styles for mobile --- */
+@media (max-width: 600px) {
+  body {
+    padding-top: 60px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-left, .nav-right {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-right a {
+    margin-right: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  section {
+    padding: 2.5rem 0.5rem;
+  }
+
+  .hero {
+    padding: 2.5rem 0.5rem;
+  }
+
+  #typed, .typed-cursor {
+    font-size: 1.5rem;
+  }
+
+  .subheading {
+    font-size: 1.1rem;
+  }
+
+  .hero-info {
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.95rem;
+  }
+
+  .collapsible-section {
+    margin: 1rem 0.2rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .section-content li {
+    padding: 0.5rem 0.3rem;
+    font-size: 0.95rem;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1rem;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .footer-left, .footer-right {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .footer-button {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}
