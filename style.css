@@ -57,7 +57,7 @@ nav {
   fill: #6aa84f;
 }
 
-
+/* NAVBAR */
 /* HERO */
 .hero {
   text-align: center;
@@ -124,6 +124,7 @@ nav {
   margin-top: 0.5rem;
 }
 
+/* HERO */
 /*body section*/
 
 .collapsible-section {
@@ -139,6 +140,29 @@ nav {
   cursor: pointer;
   margin-bottom: 1rem;   /* space below header */
 }
+
+/* ===== Section Header ===== */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  justify-content: center; /* center heading */
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #335949;;;
+}
+
+.toggle-arrow {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+  color: #335949;
+}
+/* ===== Section Header ===== */
 
 
 /* Horizontal layout for opened projects */
@@ -163,7 +187,7 @@ nav {
   transition: transform 0.3s ease; /* animate rotation */
 }
 
-/* ===== Timeline Layout ===== */
+/* ===== Timeline ===== */
 .timeline {
   display: flex;
   align-items: center;
@@ -207,37 +231,19 @@ nav {
   word-wrap: break-word;  /* wrap text if too long */
 }
 
+.role li {
+    font-size: 0.5rem;
+}
 
 .timeline-arrow {
   font-size: 2rem;
   color: #335949;
 }
+/* ===== Timeline ===== */
 
+/*body section*/
 
-/* ===== Section Header ===== */
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  justify-content: center; /* center heading */
-}
-
-.section-header h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  text-align: center;
-  color: #335949;;;
-}
-
-.toggle-arrow {
-  font-size: 1rem;
-  transition: transform 0.3s ease;
-  color: #335949;
-}
-
-
-
+/* ===== Footer ===== */
 
 footer {
   display: flex;
@@ -278,4 +284,4 @@ footer .footer-left {
   transform: scale(0.95); /* subtle click animation */
 }
 
-
+/* ===== Footer ===== */
