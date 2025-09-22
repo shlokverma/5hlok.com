@@ -471,6 +471,10 @@ nav {
 /* Reverse order for secondary section */
 .about-secondary {
   flex-direction: row;
+  display: flex;
+  align-items: center;
+  gap: 4rem;             /* space between photo and text */
+  padding: 0 2rem;
   margin-top: 3rem; /* increase space below the first section */
 }
 .about-secondary .about-photo {
@@ -479,6 +483,8 @@ nav {
 }
 .about-secondary .about-text {
   order: 2;
+  margin-left: auto;      /* pushes text to the right edge */
+  text-align: left;
 }
 
 /* Remove underline on hover for SVG icon links in nav-right ONLY on about.html */
