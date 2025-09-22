@@ -287,7 +287,6 @@ footer .footer-left {
   cursor: pointer;
   font-weight: 500;
   text-decoration: none; /* if using <a> */
-  position: fixed
 }
 
 /* Floating hover effect */
@@ -430,7 +429,9 @@ nav {
 
 .about-main .about-photo {
     /* align image to left of its container */
-  padding-left: 3rem;            /* shift right slightly */
+  padding-left: 3rem;
+  text-align: left;
+  margin-right: auto;             /* shift right slightly */
 }
 
 /* Second section: shift image slightly left */
