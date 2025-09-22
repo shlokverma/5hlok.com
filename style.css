@@ -470,22 +470,26 @@ nav {
 }
 /* Reverse order for secondary section */
 .about-secondary {
-  flex-direction: row;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 4rem;             /* space between photo and text */
+  justify-content: space-between; /* key: push photo left, text right */
+  gap: 4rem;  
   padding: 0 2rem;
-  margin-top: 3rem; /* increase space below the first section */
+  margin-top: 3rem;
 }
+
 .about-secondary .about-photo {
   order: 1;
-  margin-top: 2rem; /* image slightly lower than text */
+  margin-top: 2rem; 
 }
+
 .about-secondary .about-text {
   order: 2;
-  margin-left: auto;      /* pushes text to the right edge */
   text-align: left;
+  max-width: 420px; /* same as about-main for consistency */
 }
+
 
 /* Remove underline on hover for SVG icon links in nav-right ONLY on about.html */
 body.about-page .nav-right a:hover {
