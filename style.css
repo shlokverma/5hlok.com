@@ -428,13 +428,13 @@ nav {
 }
 
 .about-main .about-photo {
-  justify-content: flex-start;  /* align image to left of its container */
+    /* align image to left of its container */
   margin-left: 1.5rem;            /* shift right slightly */
 }
 
 /* Second section: shift image slightly left */
 .about-secondary .about-photo {
-  justify-content: flex-end;    /* align image to right of its container */
+     /* align image to right of its container */
   margin-right: 1.5rem;           /* shift left slightly */
 }
 
@@ -448,11 +448,11 @@ nav {
 
 
 .about-main .about-text {
-  margin-right: -1.5rem;  /* push text outward */
+  margin-right: 0;  /* push text outward */
 }
 
 .about-secondary .about-text {
-  margin-left: -1.5rem;   /* push text outward */
+  margin-left: 0;   /* push text outward */
 }
 
 /* About page photo styles */
@@ -516,7 +516,7 @@ body.about-page .nav-right a:hover {
   position: absolute;
   left: 0; right: 0; bottom: 0.08em;
   height: 0.45em;
-  background: #b9c9b1; /* light accent, adjust as needed */
+  background: #fff9b2; /* light accent, adjust as needed */
   z-index: -1;
   border-radius: 0.18em;
   /* Optional: mimic a sketched/hand-drawn look */
