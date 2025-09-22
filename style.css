@@ -545,31 +545,32 @@ body.about-page .nav-right a:hover {
 .about-main {
   padding-top: 2rem; /* adjust value as needed */
 }
-
-  .about-main, .about-secondary {
-    flex-direction: column;
-    gap: 1.2rem;
+  .about-main,
+  .about-secondary {
+    flex-direction: column;   /* stack items */
+    align-items: center;      /* center everything */
     text-align: center;
-    align-items: center;
+    gap: 1.5rem;              /* breathing room between text + image */
   }
 
   .about-main .about-text,
   .about-secondary .about-text {
+    order: unset;   /* let natural HTML order decide */
     text-align: center;
-    order: 1;   /* text always first */
   }
 
   .about-main .about-photo,
   .about-secondary .about-photo {
-    order: 2;        /* image always second */
-    margin: 0 auto; 
-    width: auto; /* center horizontally */
-    max-width: 100%; /* ✅ scale down to fit screen */
+    order: unset;        /* don’t force position */
+    margin: 0 auto;      /* center horizontally */
+    max-width: 90%;      /* scale nicely on small screens */
   }
 
   .about-main .about-photo img,
   .about-secondary .about-photo img {
-    width: 100%;     /* ✅ image fills container */
-    height: auto;    /* keep proportions */
+    width: 100%;
+    height: auto;
+    display: block;
   }
 }
+
