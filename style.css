@@ -539,6 +539,7 @@ body.about-page .nav-right a:hover {
 }
 
 /* Responsive for mobile */
+/* Responsive for mobile */
 @media (max-width: 700px) {
   .about-main, .about-secondary {
     flex-direction: column;
@@ -546,8 +547,23 @@ body.about-page .nav-right a:hover {
     text-align: center;
     align-items: center;
   }
+
   .about-main .about-text,
   .about-secondary .about-text {
     text-align: center;
+    order: 1;   /* text always first */
+  }
+
+  .about-main .about-photo,
+  .about-secondary .about-photo {
+    order: 2;        /* image always second */
+    margin: 0 auto;  /* center horizontally */
+    max-width: 100%; /* ✅ scale down to fit screen */
+  }
+
+  .about-main .about-photo img,
+  .about-secondary .about-photo img {
+    width: 100%;     /* ✅ image fills container */
+    height: auto;    /* keep proportions */
   }
 }
