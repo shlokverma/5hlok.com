@@ -437,7 +437,9 @@ nav {
 /* Second section: shift image slightly left */
 .about-secondary .about-photo {
      /* align image to right of its container */
-  padding-right: 3rem;           /* shift left slightly */
+  padding-right: 3rem;
+  text-align: right;  
+  margin-left:auto;         /* shift left slightly */
 }
 
 
@@ -472,10 +474,11 @@ nav {
 .about-secondary {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  gap: 4rem;  
+  align-items: center;     /* align top edges with text */
+  justify-content: center; /* keep natural left-to-right flow */
+  gap: 4rem;
   padding: 0 2rem;
-  margin-top: 3rem;
+  margin: 1.2rem 0;    /* centers it with auto left/right */          /* ✅ controls how far across it spreads */
 }
 
 .about-secondary .about-photo {
