@@ -541,6 +541,11 @@ body.about-page .nav-right a:hover {
 /* Responsive for mobile */
 /* Responsive for mobile */
 @media (max-width: 700px) {
+
+.about-main {
+  padding-top: 2rem; /* adjust value as needed */
+}
+
   .about-main, .about-secondary {
     flex-direction: column;
     gap: 1.2rem;
@@ -557,7 +562,8 @@ body.about-page .nav-right a:hover {
   .about-main .about-photo,
   .about-secondary .about-photo {
     order: 2;        /* image always second */
-    margin: 0 auto;  /* center horizontally */
+    margin: 0 auto; 
+    width: auto; /* center horizontally */
     max-width: 100%; /* ✅ scale down to fit screen */
   }
 
