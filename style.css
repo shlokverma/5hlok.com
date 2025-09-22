@@ -415,7 +415,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 2rem;
   margin: 1.2rem 0;
   padding: 0 2rem;
 }
@@ -429,13 +429,13 @@ nav {
 
 .about-main .about-photo {
     /* align image to left of its container */
-  margin-left: 1.5rem;            /* shift right slightly */
+  padding-left: 1.5rem;            /* shift right slightly */
 }
 
 /* Second section: shift image slightly left */
 .about-secondary .about-photo {
      /* align image to right of its container */
-  margin-right: 1.5rem;           /* shift left slightly */
+  padding-right: 1.5rem;           /* shift left slightly */
 }
 
 
