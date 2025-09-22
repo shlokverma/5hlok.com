@@ -429,13 +429,13 @@ nav {
 
 .about-main .about-photo {
   justify-content: flex-start;  /* align image to left of its container */
-  margin-left: 1rem;            /* shift right slightly */
+  margin-left: 0.5rem;            /* shift right slightly */
 }
 
 /* Second section: shift image slightly left */
 .about-secondary .about-photo {
   justify-content: flex-end;    /* align image to right of its container */
-  margin-right: 1rem;           /* shift left slightly */
+  margin-right: 0.5rem;           /* shift left slightly */
 }
 
 
