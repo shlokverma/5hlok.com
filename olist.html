@@ -433,7 +433,6 @@
         <div class="devlog-content">
           <div class="devlog-title">Environment setup + data ingestion</div>
           <div class="devlog-body">
-            Set up Snowflake free trial, created raw schema, loaded 6 Olist CSVs. Hit a gotcha — Snowflake's Load Data wizard was silently failing due to inconsistent quoting in the CSVs. Diagnosed by checking copy history vs running a SELECT. Fixed by running COPY INTO with FIELD_OPTIONALLY_ENCLOSED_BY set. Also learned that CREATE OR REPLACE is destructive — was accidentally re-running DDL and wiping tables each time. Lesson: separate worksheets per purpose.
           </div>
         </div>
       </div>
