@@ -58,13 +58,44 @@
 
   <div class="hero-info">
     <span>📍</span>
-    <a href="https://www.google.com/maps/place/Toronto,+ON/@43.6617819,-79.4067103,13z/data=!4m6!3m5!1s0x89d4cb90d7c63ba5:0x323555502ab4c477!8m2!3d43.653226!4d-79.3831843!16zL20vMGg3aDY?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Toronto</a>
+    <a href="#" class="modal-trigger" data-modal="modal-toronto">Toronto</a>
     <span class="separator">|</span>
     <span>📖</span>
-    <a href="https://www.goodreads.com/book/show/52036.Siddhartha" target="_blank">Currently Reading</a>
+    <a href="#" class="modal-trigger" data-modal="modal-reading">Currently Reading</a>
     <span class="separator">|</span>
     <span>🎧</span>
-    <a href="https://open.spotify.com/album/7m2yEFYxnjmEyq7IXa9sXp?si=X1T4Gn7sQ8uDi9mHAPItLw" target="_blank">Listening To</a>
+    <a href="#" class="modal-trigger" data-modal="modal-music">Listening To</a>
+  </div>
+
+  <!-- Toronto Modal -->
+  <div id="modal-toronto" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Toronto">
+    <div class="modal-box modal-photo">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <img src="assets/images/toronto.jpg" alt="Toronto skyline" />
+    </div>
+  </div>
+
+  <!-- Currently Reading Modal -->
+  <div id="modal-reading" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Currently Reading">
+    <div class="modal-box modal-card">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-book">
+        <div class="modal-book-info">
+          <p class="modal-label">Currently Reading</p>
+          <h3>When Breath Becomes Air</h3>
+          <p class="modal-author">Paul Kalanithi</p>
+          <a href="https://www.goodreads.com/en/book/show/25899336-when-breath-becomes-air" target="_blank" class="modal-link">View on Goodreads →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Listening To Modal -->
+  <div id="modal-music" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Listening To">
+    <div class="modal-box modal-embed">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <iframe id="spotify-iframe" src="" style="border-radius:12px" width="100%" height="152" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
   </div>
 </section>
 
@@ -90,20 +121,21 @@
 
   <div class="section-content">
     <div class="timeline">
-     <div class ="timeline-grid">  
-      <!-- Role 1 -->
+     <div class="timeline-grid">
+
+      <!-- Role 1: UBC -->
       <div class="role">
-        <h3>Data Specialist</h3>
-        <p>Aspect Engineers</p>
+        <h3>Engineering</h3>
+        <p>UBC</p>
         <ul>
-        <li>Building reporting, pipelines, and analytics foundations from ground up, in a resource-tight environment.</li>
+        <li>Learned structured problem-solving, critical thinking, and a curiosity for how things work.</li>
         </ul>
       </div>
 
       <!-- Connector -->
-      <div class="timeline-arrow">↑</div>
+      <div class="timeline-arrow">→</div>
 
-      <!-- Role 2 -->
+      <!-- Role 2: Infosys -->
       <div class="role">
         <h3>Software Developer</h3>
         <p>Infosys</p>
@@ -113,20 +145,18 @@
       </div>
 
       <!-- Connector -->
-      <div class="timeline-arrow">↑</div>
+      <div class="timeline-arrow">→</div>
 
-      <!-- Role 3 -->
-      
+      <!-- Role 3: Aspect -->
       <div class="role">
-        <h3>Engineering</h3>
-        <p>UBC</p>
+        <h3>Data Specialist</h3>
+        <p>Aspect Structural Engineers</p>
         <ul>
-        <li>Learned structured problem-solving, critical thinking, and a curiosity for how things work.</li>
+        <li>Building reporting, pipelines, and analytics foundations from ground up, in a resource-tight environment.</li>
         </ul>
       </div>
 
-
-      </div> 
+      </div>
     </div>
   </div>
 </section>
@@ -178,6 +208,42 @@ document.addEventListener("DOMContentLoaded", () => {
         section.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
   });
+});
+
+// ========== MODALS ==========
+const SPOTIFY_EMBED = 'https://open.spotify.com/embed/album/7m2yEFYxnjmEyq7IXa9sXp';
+
+// Preload Spotify iframe immediately
+document.getElementById('spotify-iframe').src = SPOTIFY_EMBED;
+
+document.querySelectorAll('.modal-trigger').forEach(trigger => {
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    const modal = document.getElementById(trigger.dataset.modal);
+    if (!modal) return;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+document.querySelectorAll('.modal-overlay').forEach(modal => {
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal || e.target.classList.contains('modal-close')) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      const iframe = modal.querySelector('iframe');
+      if (iframe) iframe.src = '';
+    });
+  }
 });
 
 document.getElementById('projects-link').addEventListener('click', (e) => {
