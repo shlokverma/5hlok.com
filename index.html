@@ -68,7 +68,7 @@
   </div>
 
   <!-- Toronto Modal -->
-  <div id="modal-toronto" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Toronto">
+  <div id="modal-toronto" class="modal-overlay" style="display:none" role="dialog" aria-modal="true" aria-label="Toronto">
     <div class="modal-box modal-photo">
       <button class="modal-close" aria-label="Close">&times;</button>
       <img src="assets/images/toronto.jpg" alt="Toronto skyline" />
@@ -76,7 +76,7 @@
   </div>
 
   <!-- Currently Reading Modal -->
-  <div id="modal-reading" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Currently Reading">
+  <div id="modal-reading" class="modal-overlay" style="display:none" role="dialog" aria-modal="true" aria-label="Currently Reading">
     <div class="modal-box modal-card">
       <button class="modal-close" aria-label="Close">&times;</button>
       <div class="modal-book">
@@ -91,7 +91,7 @@
   </div>
 
   <!-- Listening To Modal -->
-  <div id="modal-music" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Listening To">
+  <div id="modal-music" class="modal-overlay" style="display:none" role="dialog" aria-modal="true" aria-label="Listening To">
     <div class="modal-box modal-embed">
       <button class="modal-close" aria-label="Close">&times;</button>
       <iframe id="spotify-iframe" src="" style="border-radius:12px" width="100%" height="152" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -216,33 +216,38 @@ const SPOTIFY_EMBED = 'https://open.spotify.com/embed/album/7m2yEFYxnjmEyq7IXa9s
 // Preload Spotify iframe immediately
 document.getElementById('spotify-iframe').src = SPOTIFY_EMBED;
 
+function openModal(id) {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  modal.style.display = 'flex';
+  requestAnimationFrame(() => modal.classList.add('active'));
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modal) {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+  setTimeout(() => { modal.style.display = 'none'; }, 250);
+}
+
 document.querySelectorAll('.modal-trigger').forEach(trigger => {
   trigger.addEventListener('click', (e) => {
     e.preventDefault();
-    const modal = document.getElementById(trigger.dataset.modal);
-    if (!modal) return;
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    openModal(trigger.dataset.modal);
   });
 });
 
 document.querySelectorAll('.modal-overlay').forEach(modal => {
   modal.addEventListener('click', (e) => {
     if (e.target === modal || e.target.classList.contains('modal-close')) {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
+      closeModal(modal);
     }
   });
 });
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-overlay.active').forEach(modal => {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-      const iframe = modal.querySelector('iframe');
-      if (iframe) iframe.src = '';
-    });
+    document.querySelectorAll('.modal-overlay.active').forEach(closeModal);
   }
 });
 
