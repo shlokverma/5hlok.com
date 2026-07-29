@@ -74,6 +74,7 @@ nav {
 .hero {
   text-align: center;
   padding: 5rem 2rem;
+  position: relative;
 }
 
 .hero-info {
@@ -267,120 +268,142 @@ nav {
 
 /*body section*/
 
-/* ===== Modals ===== */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: transparent;
-  z-index: 2000;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-}
-
-.modal-overlay.active {
-  display: flex;
-  pointer-events: auto;
-}
-
-.modal-box {
+/* ===== Panels ===== */
+.hero-layout {
   position: relative;
-  background: #f5f2eb;
-  border-radius: 14px;
-  box-shadow: 0 12px 48px rgba(51,89,73,0.18), 0 2px 8px rgba(0,0,0,0.08);
-  padding: 1.5rem;
-  max-width: 90vw;
-  opacity: 0;
-  transform: translateY(10px) scale(0.97);
-  transition: opacity 0.22s ease, transform 0.22s ease;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
 }
 
-.modal-overlay.active .modal-box {
+.hero-center {
+  text-align: center;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.float-panel {
+  background: #f5f2eb;
+  border: 0.5px solid rgba(51,89,73,0.15);
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(51,89,73,0.12), 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.side-panel {
+  position: absolute;
+  top: 3rem;
+  transform: translateY(6px) scale(0.97);
+  width: 280px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+}
+
+.side-panel.active {
   opacity: 1;
+  pointer-events: auto;
   transform: translateY(0) scale(1);
 }
 
-.modal-photo img {
+.panel-left   { left: 2rem; }
+.panel-right  { right: 2rem; }
+.panel-center {
+  left: 50%;
+  top: auto;
+  bottom: 3.5rem;
+  transform: translateX(-50%) translateY(6px) scale(0.97);
+}
+.panel-center.active {
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.75rem 0.35rem;
+}
+
+.panel-title {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #6b8c7d;
+  font-weight: 500;
+}
+
+.panel-close {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #aaa;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.panel-close:hover { color: #335949; }
+
+.panel-photo {
   width: 100%;
-  max-width: 560px;
-  max-height: 70vh;
+  height: 220px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 0 0 13px 13px;
   display: block;
 }
 
-.modal-embed {
-  width: min(480px, 90vw);
+.panel-spotify {
+  padding: 0;
+  line-height: 0;
 }
 
-.modal-card {
-  width: min(360px, 90vw);
+.panel-spotify iframe {
+  border-radius: 0 !important;
+  display: block;
 }
 
-.modal-book {
+.panel-center {
+  box-shadow: none;
+  border: 0.5px solid rgba(51,89,73,0.15);
+}
+
+#panel-music {
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+}
+
+.reading-body {
+  padding: 0 0.9rem 0.75rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.5rem;
+  gap: 2px;
 }
 
-.modal-book-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.modal-book-info h3 {
-  margin: 0.25rem 0 0.2rem;
-  font-size: 1.1rem;
+.reading-book-title {
+  font-size: 0.88rem;
+  font-weight: 500;
   color: #335949;
-}
-
-.modal-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #888;
   margin: 0;
 }
 
-.modal-author {
-  font-size: 0.9rem;
-  color: #555;
-  margin: 0 0 0.75rem;
+.reading-book-author {
+  font-size: 0.76rem;
+  color: #777;
+  margin: 0;
 }
 
-.modal-link {
-  font-size: 0.85rem;
-  color: #335949;
-  font-weight: 500;
-  text-decoration: none;
+.reading-goodreads {
+  font-size: 0.72rem;
+  color: #6b8c7d;
+  margin: 0.35rem 0 0;
 }
 
-.modal-link:hover {
-  text-decoration: underline;
-  color: #6aa84f;
+@media (max-width: 860px) {
+  .side-panel { display: none; }
 }
-
-.modal-close {
-  position: absolute;
-  top: 0.6rem;
-  right: 0.8rem;
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-  color: #335949;
-  cursor: pointer;
-  line-height: 1;
-  padding: 0;
-}
-
-.modal-close:hover {
-  color: #6aa84f;
-}
-/* ===== Modals ===== */
+/* ===== Panels ===== */
 
 /* ===== Footer ===== */
 
