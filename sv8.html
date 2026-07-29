@@ -148,13 +148,46 @@
       padding: 1.25rem;
       margin: 1.25rem 0;
       overflow-x: auto;
+      cursor: zoom-in;
+      display: flex;
+      justify-content: center;
     }
+    .dag-wrapper:hover { border-color: #335949; }
     .dag-svg {
       width: 100%;
+      max-width: 820px;
       height: auto;
       display: block;
       font-family: inherit;
     }
+    /* DAG lightbox modal */
+    .dag-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 3000;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+    .dag-modal.active { display: flex; }
+    .dag-modal-inner {
+      background: #f0ede5;
+      border-radius: 14px;
+      padding: 1.5rem;
+      max-width: min(95vw, 1000px);
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      opacity: 0;
+      transform: scale(0.96);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .dag-modal.active .dag-modal-inner {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .dag-modal-inner .dag-svg { max-width: 100%; }
     .dag-layer-label {
       font-size: 9px;
       font-weight: 600;
@@ -182,6 +215,11 @@
     .dag-node-int text { fill: #f0ede5; }
     .dag-node-mart rect { fill: #4a7c68; }
     .dag-node-mart text { fill: #f0ede5; }
+    .dag-edge2 {
+      stroke: #c8c3b8;
+      stroke-width: 1;
+      marker-end: url(#arrow2);
+    }
 
     .screenshot-caption {
       font-size: 0.78rem;
@@ -478,86 +516,99 @@
         </g>
       </svg>
     </div>
-    <p class="screenshot-caption">Full dbt lineage — raw sources → staging → intermediate → marts (22 models)</p>
+    <p class="screenshot-caption">Click to expand · raw sources → staging → intermediate → marts · 22 models</p>
+  </div>
+
+  <!-- DAG lightbox -->
+  <div class="dag-modal" id="dag-modal">
+    <div class="dag-modal-inner">
+      <svg class="dag-svg" viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L6,3 z" fill="#b5b0a5"/>
+          </marker>
+        </defs>
+        <text x="55" y="18" class="dag-layer-label">Sources</text>
+        <text x="245" y="18" class="dag-layer-label">Staging</text>
+        <text x="460" y="18" class="dag-layer-label">Intermediate</text>
+        <text x="665" y="18" class="dag-layer-label">Marts</text>
+        <line x1="112" y1="50"  x2="210" y2="50"  class="dag-edge2"/><line x1="112" y1="100" x2="210" y2="100" class="dag-edge2"/>
+        <line x1="112" y1="150" x2="210" y2="150" class="dag-edge2"/><line x1="112" y1="200" x2="210" y2="200" class="dag-edge2"/>
+        <line x1="112" y1="250" x2="210" y2="250" class="dag-edge2"/><line x1="112" y1="310" x2="210" y2="310" class="dag-edge2"/>
+        <line x1="312" y1="50"  x2="408" y2="120" class="dag-edge2"/><line x1="312" y1="150" x2="408" y2="190" class="dag-edge2"/>
+        <line x1="312" y1="200" x2="408" y2="200" class="dag-edge2"/><line x1="312" y1="250" x2="408" y2="260" class="dag-edge2"/>
+        <line x1="312" y1="310" x2="408" y2="310" class="dag-edge2"/><line x1="312" y1="100" x2="408" y2="195" class="dag-edge2"/>
+        <line x1="512" y1="120" x2="614" y2="45"  class="dag-edge2"/><line x1="512" y1="120" x2="614" y2="80"  class="dag-edge2"/>
+        <line x1="512" y1="120" x2="614" y2="115" class="dag-edge2"/><line x1="512" y1="120" x2="614" y2="150" class="dag-edge2"/>
+        <line x1="512" y1="200" x2="614" y2="185" class="dag-edge2"/><line x1="512" y1="200" x2="614" y2="220" class="dag-edge2"/>
+        <line x1="512" y1="200" x2="614" y2="255" class="dag-edge2"/><line x1="512" y1="260" x2="614" y2="290" class="dag-edge2"/>
+        <line x1="512" y1="260" x2="614" y2="325" class="dag-edge2"/><line x1="512" y1="310" x2="614" y2="325" class="dag-edge2"/>
+        <g class="dag-node dag-node-source"><rect x="6" y="33" width="106" height="26" rx="5"/><text x="59" y="50">raw.customers</text></g>
+        <g class="dag-node dag-node-source"><rect x="6" y="83" width="106" height="26" rx="5"/><text x="59" y="100">raw.date_dim</text></g>
+        <g class="dag-node dag-node-source"><rect x="6" y="133" width="106" height="26" rx="5"/><text x="59" y="150">raw.orders</text></g>
+        <g class="dag-node dag-node-source"><rect x="6" y="183" width="106" height="26" rx="5"/><text x="59" y="200">raw.products</text></g>
+        <g class="dag-node dag-node-source"><rect x="6" y="233" width="106" height="26" rx="5"/><text x="59" y="250">raw.line_items</text></g>
+        <g class="dag-node dag-node-source"><rect x="6" y="293" width="106" height="26" rx="5"/><text x="59" y="310">raw.reviews</text></g>
+        <g class="dag-node dag-node-staging"><rect x="210" y="33" width="102" height="26" rx="5"/><text x="261" y="50">stg_customers</text></g>
+        <g class="dag-node dag-node-staging"><rect x="210" y="83" width="102" height="26" rx="5"/><text x="261" y="100">stg_date_dim</text></g>
+        <g class="dag-node dag-node-staging"><rect x="210" y="133" width="102" height="26" rx="5"/><text x="261" y="150">stg_orders</text></g>
+        <g class="dag-node dag-node-staging"><rect x="210" y="183" width="102" height="26" rx="5"/><text x="261" y="200">stg_products</text></g>
+        <g class="dag-node dag-node-staging"><rect x="210" y="233" width="102" height="26" rx="5"/><text x="261" y="250">stg_line_items</text></g>
+        <g class="dag-node dag-node-staging"><rect x="210" y="293" width="102" height="26" rx="5"/><text x="261" y="310">stg_reviews</text></g>
+        <g class="dag-node dag-node-int"><rect x="408" y="103" width="104" height="26" rx="5"/><text x="460" y="120">int_cust_orders</text></g>
+        <g class="dag-node dag-node-int"><rect x="408" y="183" width="104" height="26" rx="5"/><text x="460" y="200">int_orders_enr.</text></g>
+        <g class="dag-node dag-node-int"><rect x="408" y="243" width="104" height="26" rx="5"/><text x="460" y="260">int_product_met.</text></g>
+        <g class="dag-node dag-node-int"><rect x="408" y="293" width="104" height="26" rx="5"/><text x="460" y="310">int_reviews_enr.</text></g>
+        <g class="dag-node dag-node-mart"><rect x="614" y="28" width="106" height="24" rx="5"/><text x="667" y="44">mart_churn</text></g>
+        <g class="dag-node dag-node-mart"><rect x="614" y="63" width="106" height="24" rx="5"/><text x="667" y="79">mart_acquisition</text></g>
+        <g class="dag-node dag-node-mart"><rect x="614" y="98" width="106" height="24" rx="5"/><text x="667" y="114">mart_ltv</text></g>
+        <g class="dag-node dag-node-mart"><rect x="614" y="133" width="106" height="24" rx="5"/><text x="667" y="149">mart_repeat_purch.</text></g>
+        <g class="dag-node dag-node-mart"><rect x="614" y="168" width="106" height="24" rx="5"/><text x="667" y="184">mart_retention</text></g>
+        <g class="dag-node dag-node-mart"><rect x="614" y="203" width="106" height="24" rx="5"/><text x="667" y="219">mart_aov</text></g>
+        <g class="dag-node dag-node-mart"><rect x="614" y="238" width="106" height="24" rx="5"/><text x="667" y="254">mart_prod_ratings</text></g>
+        <g class="dag-node dag-node-mart"><rect x="614" y="273" width="106" height="24" rx="5"/><text x="667" y="289">mart_revenue</text></g>
+        <g class="dag-node dag-node-mart"><rect x="614" y="308" width="106" height="24" rx="5"/><text x="667" y="324">mart_rating_delay</text></g>
+      </svg>
+    </div>
   </div>
 
   <!-- Key modeling decisions -->
   <div class="cs-section">
     <h2>Key modeling decisions</h2>
-    <p>
-      The decisions that shaped this model are worth explaining — because in analytics engineering, the thinking behind the SQL matters as much as the SQL itself.
-    </p>
-
-    <h3>Grain declarations first</h3>
-    <p>
-      Before writing a single model, I declared the grain of every fact table explicitly: one row per order, one row per line item, one row per review. The grain declaration is a contract — every column must be true at that level, and violating it is where fan-out and double-counting bugs are born.
-    </p>
-
-    <h3>LEFT JOIN philosophy</h3>
-    <p>
-      Intermediate models use LEFT JOINs rather than INNER JOINs to surface data problems rather than hide them. An order with no matching customer shouldn't silently disappear from the pipeline — it should appear with NULLs and get caught by a downstream test.
-    </p>
-
-    <h3>Recognized revenue logic</h3>
-    <p>
-      Cancelled orders contribute $0 to recognized revenue. Refunded orders contribute negative revenue — a reversal, not a cost. The recognized_revenue field makes the business logic explicit and auditable.
-    </p>
-
-    <h3>Marts organized by audience, not by table</h3>
-    <p>
-      Each mart folder represents a business domain and a team: customer retention for growth, product performance for merchandising, fulfillment experience for ops. Separate models serve separate questions at separate grains rather than one monolithic mart trying to answer everything at once.
-    </p>
-
-    <h3>Churn defined at a fixed horizon</h3>
-    <p>
-      Churn is defined as no order in the last 90 days, calculated relative to the dataset end date of 2024-12-31. In production this would use CURRENT_DATE, recalculating on every pipeline run. The static date is documented explicitly in schema.yml.
-    </p>
+    <ul>
+      <li><strong>Grain-first design</strong> — Every fact table grain declared upfront (one row per order, line item, review) before writing a single model. Prevents fan-out and double-counting downstream.</li>
+      <li><strong>LEFT JOINs everywhere</strong> — Intermediate models use LEFT JOINs so data problems surface as NULLs instead of silently dropping rows. Caught by downstream tests.</li>
+      <li><strong>Recognized revenue</strong> — Cancellations contribute $0, refunds contribute negative revenue. Business logic is explicit in the model, not buried in dashboard filters.</li>
+      <li><strong>Audience-oriented marts</strong> — Mart folders map to teams: retention (growth), product performance (merchandising), fulfillment (ops). No monolithic mart serving every question at the wrong grain.</li>
+      <li><strong>Fixed churn horizon</strong> — Churn = no order in 90 days, anchored to dataset end date 2024-12-31. Documented in schema.yml; production version uses CURRENT_DATE.</li>
+    </ul>
   </div>
 
   <!-- What the data revealed -->
   <div class="cs-section">
     <h2>What the data revealed</h2>
-    <p>
-      Three findings stood out across the dashboard — each one the kind of insight a growth, merchandising, or ops team would actually act on.
-    </p>
 
-    <h3>Delivery delay is the strongest satisfaction predictor</h3>
-    <p>
-      Orders delivered within 5 days averaged a 4.47 rating. Orders delayed beyond 10 days averaged 1.79 — a 60% drop. Fulfillment SLAs aren't just an ops metric — they're a retention lever.
-    </p>
-
+    <h3>Fulfillment speed drives satisfaction more than anything else</h3>
+    <p>Orders delivered within 5 days averaged 4.47★. Beyond 10 days: 1.79★ — a 60% drop. Fulfillment SLAs are a retention lever, not just an ops metric.</p>
     <img src="assets/images/sv8/fulfillment.jpg" alt="Average rating by delivery delay bucket" class="screenshot" />
-    <p class="screenshot-caption">Average rating drops sharply as delivery delay increases — fast delivery directly protects repeat purchase rates</p>
 
-    <h3>Acquisition is declining but loyalty is holding</h3>
-    <p>
-      New customer acquisition declined steadily through 2023–2024, while repeat purchase rates held steady at 35–45% across major provinces. The data makes a case for top-of-funnel spend, not just retention programs.
-    </p>
-
+    <h3>Acquisition is declining; loyalty is holding</h3>
+    <p>New customer acquisition fell through 2023–2024 while repeat purchase rates held at 35–45%. The data points to a top-of-funnel gap, not a retention problem.</p>
     <img src="assets/images/sv8/retention.jpg" alt="New customers and repeat purchase rate charts" class="screenshot" />
-    <p class="screenshot-caption">Declining new customer acquisition alongside stable repeat purchase rates</p>
 
-    <h3>Revenue and satisfaction don't always move together</h3>
-    <p>
-      The Cascade Windbreaker is the top revenue product — but carries a below-average satisfaction score of 3.8. The Tundra Parka ranks 8th in revenue but has the highest satisfaction score at 4.9. High revenue driven by a dissatisfied customer base is a retention risk.
-    </p>
-
+    <h3>High revenue ≠ high satisfaction</h3>
+    <p>Top revenue product (Cascade Windbreaker) carries a 3.8 rating. 8th-ranked Tundra Parka scores 4.9. Revenue concentrated in dissatisfied customers is a silent churn risk.</p>
     <img src="assets/images/sv8/product.jpg" alt="Rating vs revenue rank scatter plot" class="screenshot" />
-    <p class="screenshot-caption">No consistent correlation between revenue rank and satisfaction — high-revenue products carry real churn risk</p>
   </div>
 
   <!-- Production considerations -->
   <div class="cs-section">
-    <h2>Production considerations</h2>
-    <p>
-      This project was built to demonstrate analytics engineering thinking — not to be a production system. But the gap between the two is worth being explicit about.
-    </p>
+    <h2>If this were production</h2>
     <ul>
-      <li><strong>Incremental models</strong> — Every dbt model runs as a full refresh. In production, fct_orders and fct_reviews would be incremental — processing only new or updated records. At real retailer scale, full refresh becomes prohibitively slow.</li>
-      <li><strong>Slowly Changing Dimensions</strong> — In production, Type 2 SCDs on customer and product dimensions would track historical changes — so you can answer "what province was this customer in when they placed this order?" accurately.</li>
-      <li><strong>Orchestration</strong> — In production, Airflow, Dagster, or Prefect would orchestrate the full DAG on a schedule — triggering ingestion, running dbt, testing models, and alerting on failures.</li>
-      <li><strong>Live data source</strong> — The ingestion layer uses generated CSVs rather than a live Shopify API, due to authentication limitations in Shopify's current Dev Dashboard OAuth flow. The dlt connector pattern is identical to what would run against a live API.</li>
-      <li><strong>Data contracts</strong> — The 110 dbt tests are a starting point. A full production setup would add anomaly detection, freshness checks, and alerting pipelines.</li>
+      <li><strong>Incremental models</strong> — All models run full refresh. At scale, fct_orders and fct_reviews would be incremental with a watermark on updated_at.</li>
+      <li><strong>Type 2 SCDs</strong> — Customer and product dims are snapshot-only. Production needs SCD2 to answer historical questions accurately.</li>
+      <li><strong>Orchestration</strong> — Airflow or Dagster would own the ingestion → dbt → test → alert DAG on a schedule.</li>
+      <li><strong>Data contracts</strong> — 67 schema tests are a floor. Production adds anomaly detection, freshness SLAs, and PagerDuty-level alerting.</li>
     </ul>
   </div>
 
@@ -572,6 +623,30 @@
     <a href="mailto:shlok.v123@gmail.com" class="footer-button">Let's Connect!</a>
   </div>
 </footer>
+
+<script>
+  // DAG expand/collapse
+  const dagWrapper = document.querySelector('.dag-wrapper');
+  const dagModal = document.getElementById('dag-modal');
+
+  dagWrapper.addEventListener('click', () => {
+    dagModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => dagModal.querySelector('.dag-modal-inner').style.opacity = '1');
+  });
+
+  dagModal.addEventListener('click', () => {
+    dagModal.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      dagModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
 
 </body>
 </html>
