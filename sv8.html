@@ -142,23 +142,21 @@
     }
 
     .dag-wrapper {
-      background: #f0ede5;
       border: 1px solid #d4cfc4;
       border-radius: 10px;
-      padding: 1.25rem;
       margin: 1.25rem 0;
-      overflow-x: auto;
       cursor: zoom-in;
+      overflow: hidden;
       display: flex;
       justify-content: center;
+      background: #f0ede5;
     }
     .dag-wrapper:hover { border-color: #335949; }
-    .dag-svg {
+    .dag-wrapper img {
       width: 100%;
-      max-width: 820px;
       height: auto;
       display: block;
-      font-family: inherit;
+      border-radius: 9px;
     }
     /* DAG lightbox modal */
     .dag-modal {
@@ -356,165 +354,7 @@
     </p>
 
     <div class="dag-wrapper">
-      <svg class="dag-svg" viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg" aria-label="dbt model lineage diagram">
-        <defs>
-          <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L6,3 z" fill="#b5b0a5"/>
-          </marker>
-        </defs>
-
-        <!-- ── LAYER LABELS ── -->
-        <text x="55" y="18" class="dag-layer-label">Sources</text>
-        <text x="245" y="18" class="dag-layer-label">Staging</text>
-        <text x="460" y="18" class="dag-layer-label">Intermediate</text>
-        <text x="665" y="18" class="dag-layer-label">Marts</text>
-
-        <!-- ── EDGES: sources → staging ── -->
-        <line x1="112" y1="50"  x2="210" y2="50"  class="dag-edge"/>
-        <line x1="112" y1="100" x2="210" y2="100" class="dag-edge"/>
-        <line x1="112" y1="150" x2="210" y2="150" class="dag-edge"/>
-        <line x1="112" y1="200" x2="210" y2="200" class="dag-edge"/>
-        <line x1="112" y1="250" x2="210" y2="250" class="dag-edge"/>
-        <line x1="112" y1="310" x2="210" y2="310" class="dag-edge"/>
-
-        <!-- ── EDGES: staging → intermediate ── -->
-        <!-- stg_customers → int_customer_orders -->
-        <line x1="312" y1="50"  x2="408" y2="120" class="dag-edge"/>
-        <!-- stg_orders → int_orders_enriched -->
-        <line x1="312" y1="150" x2="408" y2="190" class="dag-edge"/>
-        <!-- stg_products → int_orders_enriched -->
-        <line x1="312" y1="200" x2="408" y2="200" class="dag-edge"/>
-        <!-- stg_order_line_items → int_product_metrics -->
-        <line x1="312" y1="250" x2="408" y2="260" class="dag-edge"/>
-        <!-- stg_reviews → int_reviews_enriched -->
-        <line x1="312" y1="310" x2="408" y2="310" class="dag-edge"/>
-        <!-- stg_date_dimension → int_orders_enriched -->
-        <line x1="312" y1="100" x2="408" y2="195" class="dag-edge"/>
-
-        <!-- ── EDGES: intermediate → marts ── -->
-        <!-- int_customer_orders → retention group -->
-        <line x1="512" y1="120" x2="614" y2="45"  class="dag-edge"/>
-        <line x1="512" y1="120" x2="614" y2="80"  class="dag-edge"/>
-        <line x1="512" y1="120" x2="614" y2="115" class="dag-edge"/>
-        <line x1="512" y1="120" x2="614" y2="150" class="dag-edge"/>
-        <!-- int_orders_enriched → product & fulfillment -->
-        <line x1="512" y1="200" x2="614" y2="185" class="dag-edge"/>
-        <line x1="512" y1="200" x2="614" y2="220" class="dag-edge"/>
-        <line x1="512" y1="200" x2="614" y2="255" class="dag-edge"/>
-        <!-- int_product_metrics → product group -->
-        <line x1="512" y1="260" x2="614" y2="290" class="dag-edge"/>
-        <line x1="512" y1="260" x2="614" y2="325" class="dag-edge"/>
-        <!-- int_reviews_enriched → fulfillment group -->
-        <line x1="512" y1="310" x2="614" y2="325" class="dag-edge"/>
-
-        <!-- ── SOURCE NODES ── -->
-        <g class="dag-node dag-node-source">
-          <rect x="6" y="33" width="106" height="26" rx="5"/>
-          <text x="59" y="50">raw.customers</text>
-        </g>
-        <g class="dag-node dag-node-source">
-          <rect x="6" y="83" width="106" height="26" rx="5"/>
-          <text x="59" y="100">raw.date_dim</text>
-        </g>
-        <g class="dag-node dag-node-source">
-          <rect x="6" y="133" width="106" height="26" rx="5"/>
-          <text x="59" y="150">raw.orders</text>
-        </g>
-        <g class="dag-node dag-node-source">
-          <rect x="6" y="183" width="106" height="26" rx="5"/>
-          <text x="59" y="200">raw.products</text>
-        </g>
-        <g class="dag-node dag-node-source">
-          <rect x="6" y="233" width="106" height="26" rx="5"/>
-          <text x="59" y="250">raw.line_items</text>
-        </g>
-        <g class="dag-node dag-node-source">
-          <rect x="6" y="293" width="106" height="26" rx="5"/>
-          <text x="59" y="310">raw.reviews</text>
-        </g>
-
-        <!-- ── STAGING NODES ── -->
-        <g class="dag-node dag-node-staging">
-          <rect x="210" y="33" width="102" height="26" rx="5"/>
-          <text x="261" y="50">stg_customers</text>
-        </g>
-        <g class="dag-node dag-node-staging">
-          <rect x="210" y="83" width="102" height="26" rx="5"/>
-          <text x="261" y="100">stg_date_dim</text>
-        </g>
-        <g class="dag-node dag-node-staging">
-          <rect x="210" y="133" width="102" height="26" rx="5"/>
-          <text x="261" y="150">stg_orders</text>
-        </g>
-        <g class="dag-node dag-node-staging">
-          <rect x="210" y="183" width="102" height="26" rx="5"/>
-          <text x="261" y="200">stg_products</text>
-        </g>
-        <g class="dag-node dag-node-staging">
-          <rect x="210" y="233" width="102" height="26" rx="5"/>
-          <text x="261" y="250">stg_line_items</text>
-        </g>
-        <g class="dag-node dag-node-staging">
-          <rect x="210" y="293" width="102" height="26" rx="5"/>
-          <text x="261" y="310">stg_reviews</text>
-        </g>
-
-        <!-- ── INTERMEDIATE NODES ── -->
-        <g class="dag-node dag-node-int">
-          <rect x="408" y="103" width="104" height="26" rx="5"/>
-          <text x="460" y="120">int_cust_orders</text>
-        </g>
-        <g class="dag-node dag-node-int">
-          <rect x="408" y="183" width="104" height="26" rx="5"/>
-          <text x="460" y="200">int_orders_enr.</text>
-        </g>
-        <g class="dag-node dag-node-int">
-          <rect x="408" y="243" width="104" height="26" rx="5"/>
-          <text x="460" y="260">int_product_met.</text>
-        </g>
-        <g class="dag-node dag-node-int">
-          <rect x="408" y="293" width="104" height="26" rx="5"/>
-          <text x="460" y="310">int_reviews_enr.</text>
-        </g>
-
-        <!-- ── MART NODES ── -->
-        <g class="dag-node dag-node-mart">
-          <rect x="614" y="28" width="106" height="24" rx="5"/>
-          <text x="667" y="44">mart_churn</text>
-        </g>
-        <g class="dag-node dag-node-mart">
-          <rect x="614" y="63" width="106" height="24" rx="5"/>
-          <text x="667" y="79">mart_acquisition</text>
-        </g>
-        <g class="dag-node dag-node-mart">
-          <rect x="614" y="98" width="106" height="24" rx="5"/>
-          <text x="667" y="114">mart_ltv</text>
-        </g>
-        <g class="dag-node dag-node-mart">
-          <rect x="614" y="133" width="106" height="24" rx="5"/>
-          <text x="667" y="149">mart_repeat_purch.</text>
-        </g>
-        <g class="dag-node dag-node-mart">
-          <rect x="614" y="168" width="106" height="24" rx="5"/>
-          <text x="667" y="184">mart_retention</text>
-        </g>
-        <g class="dag-node dag-node-mart">
-          <rect x="614" y="203" width="106" height="24" rx="5"/>
-          <text x="667" y="219">mart_aov</text>
-        </g>
-        <g class="dag-node dag-node-mart">
-          <rect x="614" y="238" width="106" height="24" rx="5"/>
-          <text x="667" y="254">mart_prod_ratings</text>
-        </g>
-        <g class="dag-node dag-node-mart">
-          <rect x="614" y="273" width="106" height="24" rx="5"/>
-          <text x="667" y="289">mart_revenue</text>
-        </g>
-        <g class="dag-node dag-node-mart">
-          <rect x="614" y="308" width="106" height="24" rx="5"/>
-          <text x="667" y="324">mart_rating_delay</text>
-        </g>
-      </svg>
+      <img src="assets/images/sv8/dag.png" alt="dbt model lineage diagram" />
     </div>
     <p class="screenshot-caption">Click to expand · raw sources → staging → intermediate → marts · 22 models</p>
   </div>
@@ -522,53 +362,7 @@
   <!-- DAG lightbox -->
   <div class="dag-modal" id="dag-modal">
     <div class="dag-modal-inner">
-      <svg class="dag-svg" viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <marker id="arrow2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L6,3 z" fill="#b5b0a5"/>
-          </marker>
-        </defs>
-        <text x="55" y="18" class="dag-layer-label">Sources</text>
-        <text x="245" y="18" class="dag-layer-label">Staging</text>
-        <text x="460" y="18" class="dag-layer-label">Intermediate</text>
-        <text x="665" y="18" class="dag-layer-label">Marts</text>
-        <line x1="112" y1="50"  x2="210" y2="50"  class="dag-edge2"/><line x1="112" y1="100" x2="210" y2="100" class="dag-edge2"/>
-        <line x1="112" y1="150" x2="210" y2="150" class="dag-edge2"/><line x1="112" y1="200" x2="210" y2="200" class="dag-edge2"/>
-        <line x1="112" y1="250" x2="210" y2="250" class="dag-edge2"/><line x1="112" y1="310" x2="210" y2="310" class="dag-edge2"/>
-        <line x1="312" y1="50"  x2="408" y2="120" class="dag-edge2"/><line x1="312" y1="150" x2="408" y2="190" class="dag-edge2"/>
-        <line x1="312" y1="200" x2="408" y2="200" class="dag-edge2"/><line x1="312" y1="250" x2="408" y2="260" class="dag-edge2"/>
-        <line x1="312" y1="310" x2="408" y2="310" class="dag-edge2"/><line x1="312" y1="100" x2="408" y2="195" class="dag-edge2"/>
-        <line x1="512" y1="120" x2="614" y2="45"  class="dag-edge2"/><line x1="512" y1="120" x2="614" y2="80"  class="dag-edge2"/>
-        <line x1="512" y1="120" x2="614" y2="115" class="dag-edge2"/><line x1="512" y1="120" x2="614" y2="150" class="dag-edge2"/>
-        <line x1="512" y1="200" x2="614" y2="185" class="dag-edge2"/><line x1="512" y1="200" x2="614" y2="220" class="dag-edge2"/>
-        <line x1="512" y1="200" x2="614" y2="255" class="dag-edge2"/><line x1="512" y1="260" x2="614" y2="290" class="dag-edge2"/>
-        <line x1="512" y1="260" x2="614" y2="325" class="dag-edge2"/><line x1="512" y1="310" x2="614" y2="325" class="dag-edge2"/>
-        <g class="dag-node dag-node-source"><rect x="6" y="33" width="106" height="26" rx="5"/><text x="59" y="50">raw.customers</text></g>
-        <g class="dag-node dag-node-source"><rect x="6" y="83" width="106" height="26" rx="5"/><text x="59" y="100">raw.date_dim</text></g>
-        <g class="dag-node dag-node-source"><rect x="6" y="133" width="106" height="26" rx="5"/><text x="59" y="150">raw.orders</text></g>
-        <g class="dag-node dag-node-source"><rect x="6" y="183" width="106" height="26" rx="5"/><text x="59" y="200">raw.products</text></g>
-        <g class="dag-node dag-node-source"><rect x="6" y="233" width="106" height="26" rx="5"/><text x="59" y="250">raw.line_items</text></g>
-        <g class="dag-node dag-node-source"><rect x="6" y="293" width="106" height="26" rx="5"/><text x="59" y="310">raw.reviews</text></g>
-        <g class="dag-node dag-node-staging"><rect x="210" y="33" width="102" height="26" rx="5"/><text x="261" y="50">stg_customers</text></g>
-        <g class="dag-node dag-node-staging"><rect x="210" y="83" width="102" height="26" rx="5"/><text x="261" y="100">stg_date_dim</text></g>
-        <g class="dag-node dag-node-staging"><rect x="210" y="133" width="102" height="26" rx="5"/><text x="261" y="150">stg_orders</text></g>
-        <g class="dag-node dag-node-staging"><rect x="210" y="183" width="102" height="26" rx="5"/><text x="261" y="200">stg_products</text></g>
-        <g class="dag-node dag-node-staging"><rect x="210" y="233" width="102" height="26" rx="5"/><text x="261" y="250">stg_line_items</text></g>
-        <g class="dag-node dag-node-staging"><rect x="210" y="293" width="102" height="26" rx="5"/><text x="261" y="310">stg_reviews</text></g>
-        <g class="dag-node dag-node-int"><rect x="408" y="103" width="104" height="26" rx="5"/><text x="460" y="120">int_cust_orders</text></g>
-        <g class="dag-node dag-node-int"><rect x="408" y="183" width="104" height="26" rx="5"/><text x="460" y="200">int_orders_enr.</text></g>
-        <g class="dag-node dag-node-int"><rect x="408" y="243" width="104" height="26" rx="5"/><text x="460" y="260">int_product_met.</text></g>
-        <g class="dag-node dag-node-int"><rect x="408" y="293" width="104" height="26" rx="5"/><text x="460" y="310">int_reviews_enr.</text></g>
-        <g class="dag-node dag-node-mart"><rect x="614" y="28" width="106" height="24" rx="5"/><text x="667" y="44">mart_churn</text></g>
-        <g class="dag-node dag-node-mart"><rect x="614" y="63" width="106" height="24" rx="5"/><text x="667" y="79">mart_acquisition</text></g>
-        <g class="dag-node dag-node-mart"><rect x="614" y="98" width="106" height="24" rx="5"/><text x="667" y="114">mart_ltv</text></g>
-        <g class="dag-node dag-node-mart"><rect x="614" y="133" width="106" height="24" rx="5"/><text x="667" y="149">mart_repeat_purch.</text></g>
-        <g class="dag-node dag-node-mart"><rect x="614" y="168" width="106" height="24" rx="5"/><text x="667" y="184">mart_retention</text></g>
-        <g class="dag-node dag-node-mart"><rect x="614" y="203" width="106" height="24" rx="5"/><text x="667" y="219">mart_aov</text></g>
-        <g class="dag-node dag-node-mart"><rect x="614" y="238" width="106" height="24" rx="5"/><text x="667" y="254">mart_prod_ratings</text></g>
-        <g class="dag-node dag-node-mart"><rect x="614" y="273" width="106" height="24" rx="5"/><text x="667" y="289">mart_revenue</text></g>
-        <g class="dag-node dag-node-mart"><rect x="614" y="308" width="106" height="24" rx="5"/><text x="667" y="324">mart_rating_delay</text></g>
-      </svg>
+      <img src="assets/images/sv8/dag.png" alt="dbt model lineage diagram" style="width:100%;height:auto;border-radius:8px;" />
     </div>
   </div>
 
