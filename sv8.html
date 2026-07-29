@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SV8 Retail Analytics — Shlok Verma</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="style.css?v=2">
+  <style>
+    .project-hero {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .project-hero h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #335949;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-hero .project-subtitle {
+      font-size: 1rem;
+      color: #6b8c7d;
+      margin-bottom: 1.5rem;
+    }
+
+    .stack-pills {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .pill {
+      background: #335949;
+      color: #f5f2eb;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .project-links a {
+      text-decoration: none;
+      color: #335949;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-bottom: 1px solid #335949;
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .project-links a:hover {
+      color: #6aa84f;
+      border-color: #6aa84f;
+    }
+
+    .case-study {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .cs-section {
+      margin-bottom: 3rem;
+    }
+
+    .cs-section h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #335949;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid #d4cfc4;
+    }
+
+    .cs-section h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #335949;
+      margin: 1.25rem 0 0.4rem;
+    }
+
+    .cs-section p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #335949;
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-section ul {
+      padding-left: 1.2rem;
+      margin: 0;
+    }
+
+    .cs-section ul li {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #335949;
+      margin-bottom: 0.3rem;
+    }
+
+    .callout {
+      background: #edeae2;
+      border-left: 3px solid #335949;
+      padding: 0.9rem 1.1rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1rem 0;
+    }
+
+    .callout p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #335949;
+    }
+
+    .callout .callout-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #6b8c7d;
+      margin-bottom: 0.3rem;
+    }
+
+    .screenshot {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #d4cfc4;
+      margin: 1.25rem 0;
+      display: block;
+    }
+
+    .dag-wrapper {
+      background: #f0ede5;
+      border: 1px solid #d4cfc4;
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      overflow-x: auto;
+    }
+    .dag-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      font-family: inherit;
+    }
+    .dag-layer-label {
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      fill: #9a9589;
+    }
+    .dag-edge {
+      stroke: #c8c3b8;
+      stroke-width: 1;
+      marker-end: url(#arrow);
+    }
+    .dag-node rect { stroke: none; }
+    .dag-node text {
+      font-size: 9.5px;
+      font-weight: 500;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+    .dag-node-source rect { fill: #c8e6c9; }
+    .dag-node-source text { fill: #2e5e3e; }
+    .dag-node-staging rect { fill: #b2d8cc; }
+    .dag-node-staging text { fill: #1e4a3a; }
+    .dag-node-int rect { fill: #335949; }
+    .dag-node-int text { fill: #f0ede5; }
+    .dag-node-mart rect { fill: #4a7c68; }
+    .dag-node-mart text { fill: #f0ede5; }
+
+    .screenshot-caption {
+      font-size: 0.78rem;
+      color: #8a857a;
+      text-align: center;
+      margin-top: -0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 2rem 2rem 0;
+      text-decoration: none;
+      color: #6b8c7d;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: #335949;
+    }
+
+    @media (max-width: 600px) {
+      .project-hero h1 { font-size: 1.4rem; }
+      .case-study { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="nav-left">
+    <a href="https://github.com/shlokverma" target="_blank" aria-label="GitHub">
+      <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+      </svg>
+    </a>
+    <a href="https://linkedin.com/in/shlokverma" target="_blank" aria-label="LinkedIn">
+      <svg class="icon icon-in" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"/>
+      </svg>
+    </a>
+    <a href="mailto:shlok.v123@gmail.com" aria-label="Email">
+      <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+      </svg>
+    </a>
+    <a href="https://x.com/shlok__v" target="_blank" aria-label="X">
+      <svg class="icon icon-x" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+      </svg>
+    </a>
+  </div>
+  <div class="nav-right">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<a href="index.html" class="back-link">← Back to explorations</a>
+
+<!-- Hero -->
+<section class="project-hero">
+  <h1>SV8 Retail Analytics Engineering</h1>
+  <p class="project-subtitle">End-to-end analytics pipeline for a simulated DTC apparel brand</p>
+
+  <div class="stack-pills">
+    <span class="pill">DuckDB</span>
+    <span class="pill">dbt</span>
+    <span class="pill">dlt</span>
+    <span class="pill">Evidence.dev</span>
+    <span class="pill">Python</span>
+  </div>
+
+  <div class="project-links">
+    <a href="https://sv8-retail-analytics.netlify.app" target="_blank">Live dashboard</a>
+    <a href="https://github.com/shlokverma/retail-analytics-engineering" target="_blank">GitHub repo</a>
+  </div>
+</section>
+
+<!-- Case Study -->
+<div class="case-study">
+
+  <!-- Hook -->
+  <div class="cs-section">
+    <p>
+      Raw transactional data answers one question: what happened? Dimensional modeling answers the ones that actually matter — who bought, what they bought, when they came back, and why they didn't.
+    </p>
+    <p>
+      This project builds the analytics layer that sits between raw data and business decisions: clean, tested, documented dbt models on DuckDB, surfaced through a dashboard that makes those answers accessible to anyone on the team — not just the analyst who wrote the SQL.
+    </p>
+  </div>
+
+  <!-- What I built -->
+  <div class="cs-section">
+    <h2>What I built</h2>
+    <p>
+      SV8 Athletics is a simulated DTC apparel brand — built to mirror the data infrastructure a real company like Lululemon or Arc'teryx would run. The project covers the full analytics engineering lifecycle: retail data generated to match Shopify's schema, a dlt ingestion pipeline landing data into DuckDB, 22 dbt models across staging, intermediate, and mart layers, and an Evidence.dev dashboard serving three business domains — customer retention, product performance, and fulfillment experience.
+    </p>
+
+  </div>
+
+  <!-- Architecture -->
+  <div class="cs-section">
+    <h2>Architecture</h2>
+    <p>
+      The pipeline follows a modern ELT pattern — load first, transform in the warehouse — across four distinct layers.
+    </p>
+
+    <h3>Data Generation</h3>
+    <p>
+      Retail data generated using Python and Faker, modeled on Shopify's Admin API schema. 1,000 customers, 2,273 orders, 60 products across 6 apparel categories, and 900 reviews with correlated delivery delay and satisfaction data — designed to simulate realistic retail behaviour including power-law order frequency distributions and seasonal patterns.
+    </p>
+
+    <h3>Ingestion</h3>
+    <p>
+      A dlt pipeline reads the generated CSVs and loads them into DuckDB under a raw schema. dlt handles schema inference, type casting, and write disposition — the same connector pattern works against a live Shopify API in production.
+    </p>
+
+    <h3>Transformation</h3>
+    <p>
+      dbt Core handles all transformation logic across three layers:
+    </p>
+    <ul>
+      <li><strong>Staging</strong> — one model per source table, cleaning and typing raw data. 67 data quality tests covering uniqueness, nullability, referential integrity, and accepted values.</li>
+      <li><strong>Intermediate</strong> — four models applying joins and business logic: enriched orders (recognized revenue, cancellation flags), customer order history (cohort dates, days to second order), product metrics (revenue and qty by month), and enriched reviews (delivery delay buckets).</li>
+      <li><strong>Marts</strong> — 12 models across three business domains, each designed around a specific team's recurring questions.</li>
+    </ul>
+
+    <h3>Reporting</h3>
+    <p>
+      Evidence.dev connects directly to the mart layer, serving three dashboard pages with 15+ charts across customer retention, product performance, and fulfillment experience.
+    </p>
+
+    <div class="dag-wrapper">
+      <svg class="dag-svg" viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg" aria-label="dbt model lineage diagram">
+        <defs>
+          <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L6,3 z" fill="#b5b0a5"/>
+          </marker>
+        </defs>
+
+        <!-- ── LAYER LABELS ── -->
+        <text x="55" y="18" class="dag-layer-label">Sources</text>
+        <text x="245" y="18" class="dag-layer-label">Staging</text>
+        <text x="460" y="18" class="dag-layer-label">Intermediate</text>
+        <text x="665" y="18" class="dag-layer-label">Marts</text>
+
+        <!-- ── EDGES: sources → staging ── -->
+        <line x1="112" y1="50"  x2="210" y2="50"  class="dag-edge"/>
+        <line x1="112" y1="100" x2="210" y2="100" class="dag-edge"/>
+        <line x1="112" y1="150" x2="210" y2="150" class="dag-edge"/>
+        <line x1="112" y1="200" x2="210" y2="200" class="dag-edge"/>
+        <line x1="112" y1="250" x2="210" y2="250" class="dag-edge"/>
+        <line x1="112" y1="310" x2="210" y2="310" class="dag-edge"/>
+
+        <!-- ── EDGES: staging → intermediate ── -->
+        <!-- stg_customers → int_customer_orders -->
+        <line x1="312" y1="50"  x2="408" y2="120" class="dag-edge"/>
+        <!-- stg_orders → int_orders_enriched -->
+        <line x1="312" y1="150" x2="408" y2="190" class="dag-edge"/>
+        <!-- stg_products → int_orders_enriched -->
+        <line x1="312" y1="200" x2="408" y2="200" class="dag-edge"/>
+        <!-- stg_order_line_items → int_product_metrics -->
+        <line x1="312" y1="250" x2="408" y2="260" class="dag-edge"/>
+        <!-- stg_reviews → int_reviews_enriched -->
+        <line x1="312" y1="310" x2="408" y2="310" class="dag-edge"/>
+        <!-- stg_date_dimension → int_orders_enriched -->
+        <line x1="312" y1="100" x2="408" y2="195" class="dag-edge"/>
+
+        <!-- ── EDGES: intermediate → marts ── -->
+        <!-- int_customer_orders → retention group -->
+        <line x1="512" y1="120" x2="614" y2="45"  class="dag-edge"/>
+        <line x1="512" y1="120" x2="614" y2="80"  class="dag-edge"/>
+        <line x1="512" y1="120" x2="614" y2="115" class="dag-edge"/>
+        <line x1="512" y1="120" x2="614" y2="150" class="dag-edge"/>
+        <!-- int_orders_enriched → product & fulfillment -->
+        <line x1="512" y1="200" x2="614" y2="185" class="dag-edge"/>
+        <line x1="512" y1="200" x2="614" y2="220" class="dag-edge"/>
+        <line x1="512" y1="200" x2="614" y2="255" class="dag-edge"/>
+        <!-- int_product_metrics → product group -->
+        <line x1="512" y1="260" x2="614" y2="290" class="dag-edge"/>
+        <line x1="512" y1="260" x2="614" y2="325" class="dag-edge"/>
+        <!-- int_reviews_enriched → fulfillment group -->
+        <line x1="512" y1="310" x2="614" y2="325" class="dag-edge"/>
+
+        <!-- ── SOURCE NODES ── -->
+        <g class="dag-node dag-node-source">
+          <rect x="6" y="33" width="106" height="26" rx="5"/>
+          <text x="59" y="50">raw.customers</text>
+        </g>
+        <g class="dag-node dag-node-source">
+          <rect x="6" y="83" width="106" height="26" rx="5"/>
+          <text x="59" y="100">raw.date_dim</text>
+        </g>
+        <g class="dag-node dag-node-source">
+          <rect x="6" y="133" width="106" height="26" rx="5"/>
+          <text x="59" y="150">raw.orders</text>
+        </g>
+        <g class="dag-node dag-node-source">
+          <rect x="6" y="183" width="106" height="26" rx="5"/>
+          <text x="59" y="200">raw.products</text>
+        </g>
+        <g class="dag-node dag-node-source">
+          <rect x="6" y="233" width="106" height="26" rx="5"/>
+          <text x="59" y="250">raw.line_items</text>
+        </g>
+        <g class="dag-node dag-node-source">
+          <rect x="6" y="293" width="106" height="26" rx="5"/>
+          <text x="59" y="310">raw.reviews</text>
+        </g>
+
+        <!-- ── STAGING NODES ── -->
+        <g class="dag-node dag-node-staging">
+          <rect x="210" y="33" width="102" height="26" rx="5"/>
+          <text x="261" y="50">stg_customers</text>
+        </g>
+        <g class="dag-node dag-node-staging">
+          <rect x="210" y="83" width="102" height="26" rx="5"/>
+          <text x="261" y="100">stg_date_dim</text>
+        </g>
+        <g class="dag-node dag-node-staging">
+          <rect x="210" y="133" width="102" height="26" rx="5"/>
+          <text x="261" y="150">stg_orders</text>
+        </g>
+        <g class="dag-node dag-node-staging">
+          <rect x="210" y="183" width="102" height="26" rx="5"/>
+          <text x="261" y="200">stg_products</text>
+        </g>
+        <g class="dag-node dag-node-staging">
+          <rect x="210" y="233" width="102" height="26" rx="5"/>
+          <text x="261" y="250">stg_line_items</text>
+        </g>
+        <g class="dag-node dag-node-staging">
+          <rect x="210" y="293" width="102" height="26" rx="5"/>
+          <text x="261" y="310">stg_reviews</text>
+        </g>
+
+        <!-- ── INTERMEDIATE NODES ── -->
+        <g class="dag-node dag-node-int">
+          <rect x="408" y="103" width="104" height="26" rx="5"/>
+          <text x="460" y="120">int_cust_orders</text>
+        </g>
+        <g class="dag-node dag-node-int">
+          <rect x="408" y="183" width="104" height="26" rx="5"/>
+          <text x="460" y="200">int_orders_enr.</text>
+        </g>
+        <g class="dag-node dag-node-int">
+          <rect x="408" y="243" width="104" height="26" rx="5"/>
+          <text x="460" y="260">int_product_met.</text>
+        </g>
+        <g class="dag-node dag-node-int">
+          <rect x="408" y="293" width="104" height="26" rx="5"/>
+          <text x="460" y="310">int_reviews_enr.</text>
+        </g>
+
+        <!-- ── MART NODES ── -->
+        <g class="dag-node dag-node-mart">
+          <rect x="614" y="28" width="106" height="24" rx="5"/>
+          <text x="667" y="44">mart_churn</text>
+        </g>
+        <g class="dag-node dag-node-mart">
+          <rect x="614" y="63" width="106" height="24" rx="5"/>
+          <text x="667" y="79">mart_acquisition</text>
+        </g>
+        <g class="dag-node dag-node-mart">
+          <rect x="614" y="98" width="106" height="24" rx="5"/>
+          <text x="667" y="114">mart_ltv</text>
+        </g>
+        <g class="dag-node dag-node-mart">
+          <rect x="614" y="133" width="106" height="24" rx="5"/>
+          <text x="667" y="149">mart_repeat_purch.</text>
+        </g>
+        <g class="dag-node dag-node-mart">
+          <rect x="614" y="168" width="106" height="24" rx="5"/>
+          <text x="667" y="184">mart_retention</text>
+        </g>
+        <g class="dag-node dag-node-mart">
+          <rect x="614" y="203" width="106" height="24" rx="5"/>
+          <text x="667" y="219">mart_aov</text>
+        </g>
+        <g class="dag-node dag-node-mart">
+          <rect x="614" y="238" width="106" height="24" rx="5"/>
+          <text x="667" y="254">mart_prod_ratings</text>
+        </g>
+        <g class="dag-node dag-node-mart">
+          <rect x="614" y="273" width="106" height="24" rx="5"/>
+          <text x="667" y="289">mart_revenue</text>
+        </g>
+        <g class="dag-node dag-node-mart">
+          <rect x="614" y="308" width="106" height="24" rx="5"/>
+          <text x="667" y="324">mart_rating_delay</text>
+        </g>
+      </svg>
+    </div>
+    <p class="screenshot-caption">Full dbt lineage — raw sources → staging → intermediate → marts (22 models)</p>
+  </div>
+
+  <!-- Key modeling decisions -->
+  <div class="cs-section">
+    <h2>Key modeling decisions</h2>
+    <p>
+      The decisions that shaped this model are worth explaining — because in analytics engineering, the thinking behind the SQL matters as much as the SQL itself.
+    </p>
+
+    <h3>Grain declarations first</h3>
+    <p>
+      Before writing a single model, I declared the grain of every fact table explicitly: one row per order, one row per line item, one row per review. The grain declaration is a contract — every column must be true at that level, and violating it is where fan-out and double-counting bugs are born.
+    </p>
+
+    <h3>LEFT JOIN philosophy</h3>
+    <p>
+      Intermediate models use LEFT JOINs rather than INNER JOINs to surface data problems rather than hide them. An order with no matching customer shouldn't silently disappear from the pipeline — it should appear with NULLs and get caught by a downstream test.
+    </p>
+
+    <h3>Recognized revenue logic</h3>
+    <p>
+      Cancelled orders contribute $0 to recognized revenue. Refunded orders contribute negative revenue — a reversal, not a cost. The recognized_revenue field makes the business logic explicit and auditable.
+    </p>
+
+    <h3>Marts organized by audience, not by table</h3>
+    <p>
+      Each mart folder represents a business domain and a team: customer retention for growth, product performance for merchandising, fulfillment experience for ops. Separate models serve separate questions at separate grains rather than one monolithic mart trying to answer everything at once.
+    </p>
+
+    <h3>Churn defined at a fixed horizon</h3>
+    <p>
+      Churn is defined as no order in the last 90 days, calculated relative to the dataset end date of 2024-12-31. In production this would use CURRENT_DATE, recalculating on every pipeline run. The static date is documented explicitly in schema.yml.
+    </p>
+  </div>
+
+  <!-- What the data revealed -->
+  <div class="cs-section">
+    <h2>What the data revealed</h2>
+    <p>
+      Three findings stood out across the dashboard — each one the kind of insight a growth, merchandising, or ops team would actually act on.
+    </p>
+
+    <h3>Delivery delay is the strongest satisfaction predictor</h3>
+    <p>
+      Orders delivered within 5 days averaged a 4.47 rating. Orders delayed beyond 10 days averaged 1.79 — a 60% drop. Fulfillment SLAs aren't just an ops metric — they're a retention lever.
+    </p>
+
+    <img src="assets/images/sv8/fulfillment.jpg" alt="Average rating by delivery delay bucket" class="screenshot" />
+    <p class="screenshot-caption">Average rating drops sharply as delivery delay increases — fast delivery directly protects repeat purchase rates</p>
+
+    <h3>Acquisition is declining but loyalty is holding</h3>
+    <p>
+      New customer acquisition declined steadily through 2023–2024, while repeat purchase rates held steady at 35–45% across major provinces. The data makes a case for top-of-funnel spend, not just retention programs.
+    </p>
+
+    <img src="assets/images/sv8/retention.jpg" alt="New customers and repeat purchase rate charts" class="screenshot" />
+    <p class="screenshot-caption">Declining new customer acquisition alongside stable repeat purchase rates</p>
+
+    <h3>Revenue and satisfaction don't always move together</h3>
+    <p>
+      The Cascade Windbreaker is the top revenue product — but carries a below-average satisfaction score of 3.8. The Tundra Parka ranks 8th in revenue but has the highest satisfaction score at 4.9. High revenue driven by a dissatisfied customer base is a retention risk.
+    </p>
+
+    <img src="assets/images/sv8/product.jpg" alt="Rating vs revenue rank scatter plot" class="screenshot" />
+    <p class="screenshot-caption">No consistent correlation between revenue rank and satisfaction — high-revenue products carry real churn risk</p>
+  </div>
+
+  <!-- Production considerations -->
+  <div class="cs-section">
+    <h2>Production considerations</h2>
+    <p>
+      This project was built to demonstrate analytics engineering thinking — not to be a production system. But the gap between the two is worth being explicit about.
+    </p>
+    <ul>
+      <li><strong>Incremental models</strong> — Every dbt model runs as a full refresh. In production, fct_orders and fct_reviews would be incremental — processing only new or updated records. At real retailer scale, full refresh becomes prohibitively slow.</li>
+      <li><strong>Slowly Changing Dimensions</strong> — In production, Type 2 SCDs on customer and product dimensions would track historical changes — so you can answer "what province was this customer in when they placed this order?" accurately.</li>
+      <li><strong>Orchestration</strong> — In production, Airflow, Dagster, or Prefect would orchestrate the full DAG on a schedule — triggering ingestion, running dbt, testing models, and alerting on failures.</li>
+      <li><strong>Live data source</strong> — The ingestion layer uses generated CSVs rather than a live Shopify API, due to authentication limitations in Shopify's current Dev Dashboard OAuth flow. The dlt connector pattern is identical to what would run against a live API.</li>
+      <li><strong>Data contracts</strong> — The 110 dbt tests are a starting point. A full production setup would add anomaly detection, freshness checks, and alerting pipelines.</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-left">
+    <p>© 2025 Shlok Verma</p>
+  </div>
+  <div class="footer-right">
+    <a href="mailto:shlok.v123@gmail.com" class="footer-button">Let's Connect!</a>
+  </div>
+</footer>
+
+</body>
+</html>
